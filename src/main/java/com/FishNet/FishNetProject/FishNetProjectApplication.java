@@ -10,6 +10,8 @@ public class FishNetProjectApplication {
 		SpringApplication.run(FishNetProjectApplication.class, args);
 		
 		//saluti
+		
+		//daje ragazzi funziona lesgoski
 	}
 
 }
