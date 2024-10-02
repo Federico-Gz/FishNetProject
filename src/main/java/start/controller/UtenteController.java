@@ -20,7 +20,7 @@ public class UtenteController {
 	public String inserisciUtente() {
 		Utente u = new Utente("utente@gmail.com", "carlo", "giovanni", "vasco", "danilo");
 		utenteService.inserisciUtente(u);
-		return "index";
+		return "login";
 	}
 
 }
