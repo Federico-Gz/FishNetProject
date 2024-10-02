@@ -14,8 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	
 	<#-- LINK FAVICON-->
-    <link rel="icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -38,7 +39,7 @@
             
         </form>
 
-        <img src="/img/logo.png" alt="Logo" class="img-logo mb-3">
+        <img src="/img/logo.png" alt="Logo" class="img-logo mb-3"> <!-- Logo centrato con margine sotto -->
         <footer class="d-flex flex-column w-100 justify-content-center align-items-center">
             <p class="raleway-1">&copy; FishNet. Tutti i diritti riservati.</p>
             <p class="raleway-1">Francesco Amerio | Luca Greco | Federico Graziani | Luigi De Lucia | Enrico Valle</p>

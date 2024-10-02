@@ -15,9 +15,8 @@ public class utenteDAOimpl implements utenteDAO {
 	@Autowired
 	private UtenteRepository repository;
 
-	
-	   @Override
-	    @Transactional
+	@Override
+	@Transactional
 	public void inserisciUtente(Utente u) {
 		repository.save(u);
 		System.out.println("inserito utente");
@@ -25,32 +24,36 @@ public class utenteDAOimpl implements utenteDAO {
 
 	@Override
 	public Utente selezionaId(Integer id) {
-		return null;
+		Utente u=repository.findById(id).get();
+		return u;
 	}
 
 	@Override
 	public void cancellaUtente(Utente u) {
-
+		repository.delete(u);
+		System.out.println("cancellato utente");
 	}
 
 	@Override
 	public void cancellaUtenteTramiteId(Integer id) {
-
+		repository.deleteById(id);
 	}
 
 	@Override
 	public void aggiornaUtente(Utente u, Integer id) {
-
+//da implementare quando esisterà la pagina profilo.ftl
+		
 	}
 
 	@Override
 	public List<Utente> selezionaUtenti() {
-		return null;
+		List<Utente> utenti=(List<Utente>)repository.findAll();
+		return utenti;
 	}
 
 	@Override
 	public long contaUtenti() {
-		return 0;
+		return repository.count();
 	}
 
 }

@@ -18,9 +18,9 @@ public class UtenteController {
 
 	@GetMapping("/inserisci")
 	public String inserisciUtente() {
-		Utente u = new Utente("utente@gmail.com", "carlo", "giovanni", "vasco", "danilo");
-		utenteService.inserisciUtente(u);
-		return "login";
+		//Utente u = new Utente("utente@gmail.com", "carlo", "giovanni", "vasco", "danilo");
+		//utenteService.inserisciUtente(u);
+		return "registrazione";
 	}
 
 }
