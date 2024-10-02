@@ -15,9 +15,8 @@ public class utenteDAOimpl implements utenteDAO {
 	@Autowired
 	private UtenteRepository repository;
 
-	
-	   @Override
-	    @Transactional
+	@Override
+	@Transactional
 	public void inserisciUtente(Utente u) {
 		repository.save(u);
 		System.out.println("inserito utente");
@@ -25,17 +24,19 @@ public class utenteDAOimpl implements utenteDAO {
 
 	@Override
 	public Utente selezionaId(Integer id) {
+		Utente u=repository.findById(id).get();
 		return null;
 	}
 
 	@Override
 	public void cancellaUtente(Utente u) {
-
+		repository.delete(u);
+		System.out.println("cancellato utente");
 	}
 
 	@Override
 	public void cancellaUtenteTramiteId(Integer id) {
-
+		repository.deleteById(id);
 	}
 
 	@Override
