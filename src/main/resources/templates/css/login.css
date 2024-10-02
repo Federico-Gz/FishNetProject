@@ -1,0 +1,33 @@
+body {
+    background: linear-gradient(135deg, #d8d8d8 0%, #a4caf8 100%);
+    
+}
+
+.text-logo{
+    width: 300px;
+}
+
+.img-logo{
+    width: 300px;
+}
+
+form{
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);   
+}
+
+
+.raleway-1 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: 1.2em;
+  font-style: normal;
+}
+
+.raleway-2 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-size: 1em;
+    font-style: normal;
+}
