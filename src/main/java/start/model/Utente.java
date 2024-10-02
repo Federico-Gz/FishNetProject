@@ -1,7 +1,7 @@
 package start.model;
 
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
