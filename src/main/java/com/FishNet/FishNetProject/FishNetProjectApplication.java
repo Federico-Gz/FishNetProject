@@ -8,6 +8,8 @@ public class FishNetProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FishNetProjectApplication.class, args);
+		
+		//saluti
 	}
 
 }
