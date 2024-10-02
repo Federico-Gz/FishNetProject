@@ -1,4 +1,4 @@
-package com.FishNet.model;
+package start.model;
 
 import java.time.LocalDate;
 import java.util.List;

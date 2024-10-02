@@ -1,8 +1,8 @@
-package com.FishNet.repository;
+package start.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.FishNet.model.Utente;
+import start.model.Utente;
 
 public interface UtenteRepository extends CrudRepository<Utente,Integer> {
 

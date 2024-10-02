@@ -1,15 +1,14 @@
-package com.FishNet.DAOimpl;
+package start.DAOimpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.FishNet.DAO.utenteDAO;
-import com.FishNet.model.Utente;
-import com.FishNet.repository.UtenteRepository;
-
 import jakarta.transaction.Transactional;
+import start.DAO.utenteDAO;
+import start.model.Utente;
+import start.repository.UtenteRepository;
 
 @Service
 public class utenteDAOimpl implements utenteDAO {
