@@ -2,6 +2,7 @@ package start.model;
 
 import java.time.LocalDate;
 //import java.util.List;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,8 +32,8 @@ public class Utente {
 	private String password;
 	@Column(name = "immagine")
 	private String img;
-//	List<Post> postcreati;
-//	List<Evento> eventicreati;
+    List<Post> postcreati;
+    List<Evento> eventicreati;
 
 	public Utente( String email, String nome, String cognome, String username, String password) {
 		super();

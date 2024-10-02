@@ -25,7 +25,7 @@ public class utenteDAOimpl implements utenteDAO {
 	@Override
 	public Utente selezionaId(Integer id) {
 		Utente u=repository.findById(id).get();
-		return null;
+		return u;
 	}
 
 	@Override
@@ -41,17 +41,19 @@ public class utenteDAOimpl implements utenteDAO {
 
 	@Override
 	public void aggiornaUtente(Utente u, Integer id) {
-
+//da implementare quando esisterà la pagina profilo.ftl
+		
 	}
 
 	@Override
 	public List<Utente> selezionaUtenti() {
-		return null;
+		List<Utente> utenti=(List<Utente>)repository.findAll();
+		return utenti;
 	}
 
 	@Override
 	public long contaUtenti() {
-		return 0;
+		return repository.count();
 	}
 
 }
