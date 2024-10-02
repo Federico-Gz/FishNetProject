@@ -1,4 +1,4 @@
-package com.FishNet.FishNetProject;
+package start;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
