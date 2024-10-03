@@ -8,12 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import start.DAO.postDAO;
+
 import start.DAO.utenteDAO;
-import start.model.Post;
 import start.model.Utente;
 
 @Controller
@@ -23,16 +20,28 @@ public class UtenteController {
 	@Autowired
 	private utenteDAO utenteService;
 
-	@GetMapping("/login")
+//	@PostMapping("/registrati")
+//	public String mostraPagina(@RequestParam("action")String azione) {
+//		if(azione.equals("register")) {
+//			return "registrazione";
+//			
+//		}else if(azione.equals("accesso")){
+//			System.out.println("controlla i dati di accesso");
+//		}
+//		
+//		return "registrazione";
+//	}
+	
+	@GetMapping("/registrati")
 	public String mostraPagina() {
 		return "registrazione";
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/registrazioneOk")
 	public String inserisciUtente(@ModelAttribute Utente utente) {
 	
 		utenteService.inserisciUtente(utente);
-		return "registrazione";
+		return "login";
 	}
 
 //	@GetMapping("/rimuovi")

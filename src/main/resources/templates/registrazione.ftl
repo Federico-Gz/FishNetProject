@@ -30,21 +30,21 @@
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo">
 
-        <form class="mx-auto p-5 w-25 rounded-5" action="/login" method="post">
+        <form class="mx-auto p-5 w-25 rounded-5" action="/registrazioneOk" method="post">
             <div class="mb-3 d-flex flex-column">
-                <label for="name" class="form-label align-self-center raleway-1">Nome</label>
+                <label for="nome" class="form-label align-self-center raleway-1">Nome</label>
                 <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="name" name="name" placeholder="Inserisci il tuo nome" required>
+                    id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
             </div>
             <div class="mb-3 d-flex flex-column">
-                <label for="surname" class="form-label align-self-center raleway-1">Cognome</label>
+                <label for="cognome" class="form-label align-self-center raleway-1">Cognome</label>
                 <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="surname" name="surname" placeholder="Inserisci il tuo cognome" required>
+                    id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
             </div>
             <div class="mb-3 d-flex flex-column">
-                <label for="date" class="form-label align-self-center raleway-1">Data di nascita</label>
+                <label for="data_nascita" class="form-label align-self-center raleway-1">Data di nascita</label>
                 <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="date" name="date" placeholder="Inserisci la tua data di nascita" required>
+                    id="data_nascita" name="data_nascita" placeholder="Inserisci la tua data di nascita" required>
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="email" class="form-label align-self-center raleway-1">Email</label>
