@@ -41,7 +41,7 @@ public class Utente {
 	List<Post> postcreati;
 	@OneToMany(mappedBy = "utente")
 	List<Evento> eventic_reati;
-	@ManyToMany(mappedBy = "evento_utente")
+	@ManyToMany
 	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name = "id_utente"), inverseJoinColumns = @JoinColumn(name = "id_evento"))
 	List<Evento> eventi_partecipati;
 
