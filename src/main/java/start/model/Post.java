@@ -7,21 +7,28 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "post")
+
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPost;
-
+	@ManyToOne
+    @JoinColumn(name = "id_utente", nullable = false)
 	private Utente utente;
-	@Column(name = "data", nullable = false)
+	@Column(name = "data_creazione", nullable = false)
 	private LocalDate data_creazione;
-	@Column(name = "descrizione")
+	@Column(name = "descrizione", nullable = false)
 	private String contenuto;
-	@Column(name = "immagine", nullable = false)
+	@Column(name = "immagine")
 	private String img;
 
 	public Post(Utente utente, LocalDate data_creazione, String contenuto, String img) {

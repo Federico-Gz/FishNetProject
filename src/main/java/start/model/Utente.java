@@ -9,6 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,10 +37,15 @@ public class Utente {
 	private String password;
 	@Column(name = "immagine")
 	private String img;
-    List<Post> postcreati;
-    List<Evento> eventicreati;
+	@OneToMany(mappedBy = "utente")
+	List<Post> postcreati;
+	@OneToMany(mappedBy = "utente")
+	List<Evento> eventic_reati;
+	@ManyToMany(mappedBy = "evento_utente")
+	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name = "id_utente"), inverseJoinColumns = @JoinColumn(name = "id_evento"))
+	List<Evento> eventi_partecipati;
 
-	public Utente( String email, String nome, String cognome, String username, String password) {
+	public Utente(String email, String nome, String cognome, String username, String password) {
 		super();
 		this.email = email;
 		this.nome = nome;
@@ -43,7 +53,6 @@ public class Utente {
 		this.username = username;
 		this.password = password;
 	}
-	
 
 	public Integer getIdUtente() {
 		return idUtente;
