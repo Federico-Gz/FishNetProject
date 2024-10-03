@@ -23,4 +23,6 @@ public interface utenteDAO {
 	long contaUtenti();
 	// Utente trovaUtentetramiteMail(String mail);
 
+	
+	void aggiungiImmagineProfilo(String path);
 }

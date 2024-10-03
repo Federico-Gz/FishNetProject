@@ -63,6 +63,10 @@ public class Evento {
 		this.partecipanti = new ArrayList<>();
 	}
 
+	public Evento() {
+
+	}
+
 	public int getId_evento() {
 		return id_evento;
 	}

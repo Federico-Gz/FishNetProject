@@ -45,13 +45,19 @@ public class Utente {
 	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name = "id_utente"), inverseJoinColumns = @JoinColumn(name = "id_evento"))
 	List<Evento> eventi_partecipati;
 
-	public Utente(String email, String nome, String cognome, String username, String password) {
+	public Utente( String nome, String cognome,LocalDate data,String email, String username, String password) {
 		super();
-		this.email = email;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
+		this.setEmail(email);
+		this.setNome(nome);
+		this.setCognome(cognome);
+		this.setUsername(username);
+		this.setPassword(password);
+		this.setData(data);
+		
+	}
+	
+	public Utente() {
+		
 	}
 
 	public Integer getIdUtente() {
