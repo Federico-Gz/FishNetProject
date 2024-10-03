@@ -9,7 +9,7 @@ import start.DAO.utenteDAO;
 import start.model.Utente;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("index")
 public class UtenteController {
 	
 
@@ -20,7 +20,7 @@ public class UtenteController {
 	public String inserisciUtente() {
 		//Utente u = new Utente("utente@gmail.com", "carlo", "giovanni", "vasco", "danilo");
 		//utenteService.inserisciUtente(u);
-		return "registrazione";
+		return "home";
 	}
 
 }
