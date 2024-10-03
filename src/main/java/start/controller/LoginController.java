@@ -10,7 +10,7 @@ import ch.qos.logback.core.model.Model;
 
 @Controller
 @RequestMapping("/")
-public class DefaultController {
+public class LoginController {
 
 	@GetMapping
 	public String showDefaultPage() {
@@ -18,7 +18,8 @@ public class DefaultController {
 	}
 
 	@PostMapping("/login")
-	public String mostraPagina() {
+	public String mostraPagina() {  
+		
 //			 @RequestParam String username, 
 //	            @RequestParam String password, 
 //	            @RequestParam String accesso,

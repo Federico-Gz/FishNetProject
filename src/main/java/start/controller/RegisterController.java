@@ -15,7 +15,7 @@ import start.model.Utente;
 
 @Controller
 //@RequestMapping("/index")
-public class UtenteController {
+public class RegisterController {
 
 	@Autowired
 	private utenteDAO utenteService;
