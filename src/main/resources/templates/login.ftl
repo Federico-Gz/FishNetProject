@@ -33,8 +33,8 @@
                 <input type="password" class="form-control w-75 align-self-center text-center rounded-4 raleway-2" id="password" name="password" placeholder="Inserisci la tua password">
             </div>
             <div class="d-flex justify-content-center">
-                <button  type="submit" name="accesso"  class="btn btn-primary m-2 raleway-1">Login</button>
-                <button  type="submit" name="register"  class="btn btn-secondary m-2 raleway-1">Registrati</button>
+                <button  type="submit" name="action" value="login" class="btn btn-primary m-2 raleway-1">Login</button>
+                <button  type="submit" name="action" value="register" class="btn btn-secondary m-2 raleway-1">Registrati</button>
             </div>
             
         </form>

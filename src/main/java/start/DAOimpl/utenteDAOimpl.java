@@ -3,6 +3,7 @@ package start.DAOimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -58,9 +59,27 @@ public class utenteDAOimpl implements utenteDAO {
 
 	@Override
 	public void aggiungiImmagineProfilo(String path) {
-		
+
 //		Utente u=this.selezionaId(1);
 //		u.setImg(path); da implementare in modo dinamico
+	}
+
+	public boolean controlloCredenziali(String username, String password) {
+		boolean success = false;
+		Utente u = repository.findByUsernameAndPassword(username, password);
+		if (u != null) {
+
+			if (u.getPassword().equals(password) && (u.getUsername().equals(username))) {
+				success = true;
+			} else {
+				success = false;
+
+			}
+			return success;
+		} else {
+			success = false;
+		}
+		return success;
 	}
 
 }

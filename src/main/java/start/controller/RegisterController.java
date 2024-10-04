@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 import start.DAO.utenteDAO;
 import start.model.Utente;
 
@@ -31,15 +30,15 @@ public class RegisterController {
 //		
 //		return "registrazione";
 //	}
-	
+
 	@GetMapping("/registrati")
 	public String mostraPagina() {
 		return "registrazione";
 	}
 
-	@PostMapping("/registrazioneOk")
+	@PostMapping("/registrazioneOk") // metodo per inserire un nuovo utente
 	public String inserisciUtente(@ModelAttribute Utente utente) {
-	
+
 		utenteService.inserisciUtente(utente);
 		return "login";
 	}

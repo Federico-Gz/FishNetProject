@@ -25,4 +25,6 @@ public interface utenteDAO {
 
 	
 	void aggiungiImmagineProfilo(String path);
+	
+	public boolean controlloCredenziali(String username, String password);
 }

@@ -63,7 +63,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary m-2 raleway-1">Indietro</button>
-                <button type="submit" class="btn btn-secondary m-2 raleway-1">Registrati</button>
+                <button type="submit"  class="btn btn-secondary m-2 raleway-1">Registrati</button>
             </div>
 
         </form>
