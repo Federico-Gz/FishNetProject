@@ -82,4 +82,16 @@ public class utenteDAOimpl implements utenteDAO {
 		return success;
 	}
 
+	@Override
+	public boolean controlloPresenzaUserPw(String username, String email) {
+		boolean presente = false;
+		List<Utente> utenti = repository.findAll();
+
+		for (Utente u : utenti) {
+			if (u.getUsername().equals(username) || u.getEmail().equals(email)) {
+				presente = true;
+			}
+		}
+		return presente;
+	}
 }

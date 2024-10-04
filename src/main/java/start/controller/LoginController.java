@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ch.qos.logback.core.model.Model;
-import start.DAO.utenteDAO;
+
+import org.springframework.ui.Model;
+
+
+//import ch.qos.logback.core.model.Model;
+//import start.DAO.utenteDAO;
 import start.DAOimpl.utenteDAOimpl;
 
 @Controller
@@ -24,6 +28,8 @@ public class LoginController {
 	}
 
 	@PostMapping("/login") // metodo per gestire i bottoni e le pagine di reindirizzo
+	
+	//CHIEDERE AI RAGAZZI FRONTEND PROBLEMA BOTTONE
 	public String mostraPagina(@RequestParam("action") String action, @RequestParam("username") String username,
 			@RequestParam("password") String password, Model model) {
 		if ("login".equals(action)) {
@@ -36,26 +42,12 @@ public class LoginController {
 		} else if ("register".equals(action)) {
 
 			return "registrazione";
-		}
-		return "registrazione";
-	}
+		} else if ("indietro".equals(action)) {
 
-//			 @RequestParam String username, 
-//	            @RequestParam String password, 
-//	            @RequestParam String accesso,
-//	            @RequestParam String register, 
-//	            Model model) {
-//		 // Se è stato premuto il bottone Login
-//        if (accesso != null) {
-////            // Logica per gestire il login
-////            boolean loginSuccess = verificaCredenziali(username, password);
-////            if (loginSuccess) {
-////                return "paginaLoginSuccess"; // Pagina di login success
-////            } else {
-////                model.addAttribute("errore", "Credenziali errate");
-////                return "paginaLogin"; // Torna alla pagina di login con errore
-////            }
-//        }
-//
+			return "login";
+
+		}
+		return "/";
+	}
 
 }

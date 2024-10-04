@@ -38,9 +38,12 @@ public class RegisterController {
 
 	@PostMapping("/registrazioneOk") // metodo per inserire un nuovo utente
 	public String inserisciUtente(@ModelAttribute Utente utente) {
-
-		utenteService.inserisciUtente(utente);
-		return "login";
+		if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
+			return "errore";
+		} else {
+			utenteService.inserisciUtente(utente);
+			return "login";
+		}
 	}
 
 //	@GetMapping("/rimuovi")
