@@ -43,8 +43,8 @@
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="data_nascita" class="form-label align-self-center raleway-1">Data di nascita</label>
-                <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="data_nascita" name="data_nascita" placeholder="Inserisci la tua data di nascita" required>
+                <input type="date" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
+                    id="data_nascita" name="data" placeholder="Inserisci la tua data di nascita" required>
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="email" class="form-label align-self-center raleway-1">Email</label>
