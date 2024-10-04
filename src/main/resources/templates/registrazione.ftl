@@ -62,7 +62,7 @@
                     id="password" name="password" placeholder="Inserisci la tua password" required>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" name="action" value="indietro" class="btn btn-primary m-2 raleway-1">Indietro</button>
+                <button type="button" name="action" value="indietro" class="btn btn-primary m-2 raleway-1">Indietro</button>
                 <button type="submit"  class="btn btn-secondary m-2 raleway-1">Registrati</button>
             </div>
 

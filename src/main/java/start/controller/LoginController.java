@@ -31,7 +31,7 @@ public class LoginController {
 			@RequestParam("password") String password, Model model) {
 		if ("login".equals(action)) {
 			if (utenteService.controlloCredenziali(username, password)) {
-				return "ciao";
+				return "home";
 			} else {
 				return "errore";
 			}
