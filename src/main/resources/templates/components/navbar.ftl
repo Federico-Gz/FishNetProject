@@ -21,7 +21,7 @@
                         <a class="nav-link" href="#"><h5>Mappa</h5></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><h5>Esci</h5></a>
+                        <a class="nav-link" href="/login.ftl"><h5>Esci</h5></a>
                     </li>
                 </ul>
                 <form class="d-flex " role="search">

@@ -17,7 +17,7 @@ import start.model.Utente;
 @Controller
 @RequestMapping("/")
 public class LoginController {
-	List<Utente> utenti;
+	//List<Utente> utenti;
 	@Autowired
 	private UtenteDAOimpl utenteService;
 
@@ -31,7 +31,8 @@ public class LoginController {
 			@RequestParam("password") String password, Model model) {
 		if ("login".equals(action)) {
 			if (utenteService.controlloCredenziali(username, password)) {
-				HomeController.ShowUtenti(model);// metodo per mostrare utenti su home.ftl come fossero post
+				List<Utente> utenti = utenteService.selezionaUtenti();
+				model.addAttribute("utenti",utenti);// metodo per mostrare utenti su home.ftl come fossero post
 					return "home";
 			} else {
 				return "errore";
