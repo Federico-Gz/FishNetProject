@@ -1,5 +1,6 @@
 package start.DAO;
 
+import java.time.LocalDate;
 import java.util.List;
 
 //import org.springframework.stereotype.Service;
@@ -29,4 +30,6 @@ public interface utenteDAO {
 	public boolean controlloCredenziali(String username, String password);
 	
 	public boolean controlloPresenzaUserPw(String username, String email);
+	
+	public boolean controlloData(LocalDate data);
 }

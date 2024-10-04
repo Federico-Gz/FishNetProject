@@ -48,7 +48,7 @@
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="email" class="form-label align-self-center raleway-1">Email</label>
-                <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
+                <input type="email" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
                     id="email" name="email" placeholder="Inserisci la tua email" required>
             </div>
             <div class="mb-3 d-flex flex-column">

@@ -19,17 +19,6 @@ public class RegisterController {
 	@Autowired
 	private utenteDAO utenteService;
 
-//	@PostMapping("/registrati")
-//	public String mostraPagina(@RequestParam("action")String azione) {
-//		if(azione.equals("register")) {
-//			return "registrazione";
-//			
-//		}else if(azione.equals("accesso")){
-//			System.out.println("controlla i dati di accesso");
-//		}
-//		
-//		return "registrazione";
-//	}
 
 	@GetMapping("/registrati")
 	public String mostraPagina() {
@@ -41,8 +30,13 @@ public class RegisterController {
 		if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
 			return "errore";
 		} else {
-			utenteService.inserisciUtente(utente);
-			return "login";
+			if(!utenteService.controlloData(utente.getData())) {
+				utenteService.inserisciUtente(utente);
+				return "login";
+			}
+			else {
+				return "errore";
+			}
 		}
 	}
 
@@ -52,7 +46,7 @@ public class RegisterController {
 //		return "registrazione";
 //	}
 //
-//	@GetMapping("/rimuovi")
+//	@GetMapping("/rimuovi") //da testare ma non da mettere in pagina
 //	public String rimuoviTuttiUtenti() {
 //
 //		List<Utente> utenti = utenteService.selezionaUtenti();

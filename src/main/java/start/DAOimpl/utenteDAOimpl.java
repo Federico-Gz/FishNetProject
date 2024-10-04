@@ -1,5 +1,6 @@
 package start.DAOimpl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,5 +94,16 @@ public class utenteDAOimpl implements utenteDAO {
 			}
 		}
 		return presente;
+	}
+@Override
+	public boolean controlloData(LocalDate data) {
+		boolean invalidDate;
+		LocalDate dataOggi = LocalDate.now();
+		if (data.isAfter(dataOggi)) {
+			invalidDate = true;
+		}else {
+			invalidDate=false;
+		}
+		return invalidDate;
 	}
 }
