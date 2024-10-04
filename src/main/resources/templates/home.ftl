@@ -27,9 +27,11 @@
     <div class=" d-flex w-100 flex-column justify-content-center align-items-center ">
            <#include "/components/navbar.ftl"/>
            <div class="container d-flex flex-column wid ">
+           <!--serve per ciclare sulla lista di utenti, crea tante pagine post.ftl quanti sono gli utenti nella lista -->
+           <#list utenti as utente>
            		<#include "/components/post.ftl"/>
-           		<#include "/components/post.ftl"/>  
-           		<#include "/components/post.ftl"/>  
+           		</#list>
+           		
            </div>      
     </div>
 
