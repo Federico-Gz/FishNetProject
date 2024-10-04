@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import start.DAO.UtenteDAO;
 import start.model.Utente;
@@ -26,18 +27,25 @@ public class RegisterController {
 	}
 
 	@PostMapping("/registrazioneOk") // metodo per inserire un nuovo utente
-	public String inserisciUtente(@ModelAttribute Utente utente) {
-		if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
-			return "errore";
-		} else {
-			if(!utenteService.controlloData(utente.getData())) {
-				utenteService.inserisciUtente(utente);
-				return "login";
-			}
-			else {
+	public String inserisciUtente(@ModelAttribute Utente utente,@RequestParam String action) {
+		if(action.equals("registrati")) {
+			if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
 				return "errore";
+			} else {
+				if(!utenteService.controlloData(utente.getData())) {
+					utenteService.inserisciUtente(utente);
+					return "login";
+				}
+				else {
+					return "errore";
+				}
 			}
+		}else if(action.equals("indietro")) {
+			System.out.println("indietro premuto");
+			return "login";
+			
 		}
+		return "errore";
 	}
 
 //	@GetMapping("/rimuovi")

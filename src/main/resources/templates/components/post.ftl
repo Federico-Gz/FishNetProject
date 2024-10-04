@@ -21,7 +21,7 @@
     <div class="card-body">
         <p class="card-text">
            <!-- ogni volta che cicla da home.ftl utente è un nuovo utente della lista -->
-            Nome: ${utente.getNome()}, Email: ${utente.getUsername()}
+            Nome: ${utente.getNome()}, Username: ${utente.getUsername()}
             
        
             <!--This is a wider card with supporting text below as a natural lead-in

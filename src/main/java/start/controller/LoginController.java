@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.ui.Model;
 
-import start.DAOimpl.UtenteDAOimpl;
+import start.DAO.UtenteDAO;
 import start.model.Utente;
 
 @Controller
 @RequestMapping("/")
 public class LoginController {
-	//List<Utente> utenti;
+	
 	@Autowired
-	private UtenteDAOimpl utenteService;
+	private UtenteDAO utenteService;
 
 	@GetMapping
 	public String showLoginPage() {
@@ -27,34 +27,36 @@ public class LoginController {
 	}
 
 	@PostMapping("/login") // metodo per gestire i bottoni e le pagine di reindirizzo
-	public String mostraPagina(@RequestParam("action") String action, @RequestParam("username") String username,
-			@RequestParam("password") String password, Model model) {
-		if ("login".equals(action)) {
-			if (utenteService.controlloCredenziali(username, password)) {
-				List<Utente> utenti = utenteService.selezionaUtenti();
-				model.addAttribute("utenti",utenti);// metodo per mostrare utenti su home.ftl come fossero post
-					return "home";
+	public String mostraPagina(@RequestParam String action, @RequestParam String username,
+			@RequestParam String password, Model model) {
+		if (action.equals("login")) {
+			if (utenteService.controlloCredenziali(username, password)) { 
+				// metodo per mostrare utenti su home.ftl come fossero post
+//				List<Utente> utenti = utenteService.selezionaUtenti();
+//				model.addAttribute("utenti",utenti);
+				this.inserisciPost(model);
+					return "home"; // Le credenziali erano corrette accedi alla home
 			} else {
-				return "errore";
+				return "errore"; // Le credenziali erano errate
 			}
 
-		} else if ("register".equals(action)) {
-
-			return "registrazione";
-		} else if ("indietro".equals(action)) {
-
-			return "login";
-
 		}
-		return "/";
+		else if (action.equals("register")) { // Premuto il tasto registrati
+
+			return "registrazione"; // Pagina di registrazione
+		} 
+
+		return "errore";
 	}
 	
-//	@GetMapping("/homePost")          metodo che serve per poter usare una lista nella ftl home
-//	public String nome(Model model) {
-//		List<Utente> utenti = utenteService.selezionaUtenti();
-//		model.addAttribute("utenti",utenti);
-//			return "home";
-//	}
+	        
+	// metodo che serve per poter usare una lista nella ftl home
+	public void inserisciPost(Model model) {
+		List<Utente> utenti = utenteService.selezionaUtenti();
+		model.addAttribute("utenti",utenti);
+	}
+	
+	
 	
 
 }

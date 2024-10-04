@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             	<ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href=""><h5>Home</h5></a>
+                        <a class="nav-link" href="#"><h5>Home</h5></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><h5>Eventi</h5></a>
@@ -21,7 +21,7 @@
                         <a class="nav-link" href="#"><h5>Mappa</h5></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login.ftl"><h5>Esci</h5></a>
+                        <a class="nav-link" href="/showLogin"><h5>Esci</h5></a>
                     </li>
                 </ul>
                 <form class="d-flex " role="search">

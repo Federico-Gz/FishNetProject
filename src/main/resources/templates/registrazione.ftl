@@ -62,8 +62,8 @@
                     id="password" name="password" placeholder="Inserisci la tua password" required>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" name="action" value="indietro" class="btn btn-primary m-2 raleway-1">Indietro</button>
-                <button type="submit"  class="btn btn-secondary m-2 raleway-1">Registrati</button>
+                <button type="submit" name="action" value="indietro" class="btn btn-primary m-2 raleway-1" id="indietro">Indietro</button>
+                <button type="submit" name="action" value="registrati" class="btn btn-secondary m-2 raleway-1">Registrati</button>
             </div>
 
         </form>
@@ -77,7 +77,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

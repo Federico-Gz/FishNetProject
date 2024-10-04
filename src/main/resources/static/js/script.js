@@ -28,5 +28,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 likeCounter.classList.remove("animate__animated", "animate__fadeInDown");
             }, { once: true });
         });
-    });
+    }); 
 });
