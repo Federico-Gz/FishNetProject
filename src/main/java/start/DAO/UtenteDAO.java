@@ -7,7 +7,7 @@ import java.util.List;
 
 import start.model.Utente;
 
-public interface utenteDAO {
+public interface UtenteDAO {
 
 	void inserisciUtente(Utente u);
 

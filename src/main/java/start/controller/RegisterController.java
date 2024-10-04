@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import start.DAO.utenteDAO;
+import start.DAO.UtenteDAO;
 import start.model.Utente;
 
 @Controller
@@ -17,7 +17,7 @@ import start.model.Utente;
 public class RegisterController {
 
 	@Autowired
-	private utenteDAO utenteService;
+	private UtenteDAO utenteService;
 
 
 	@GetMapping("/registrati")

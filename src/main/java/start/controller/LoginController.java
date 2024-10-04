@@ -1,6 +1,5 @@
 package start.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 
-//import ch.qos.logback.core.model.Model;
-//import start.DAO.utenteDAO;
-import start.DAOimpl.utenteDAOimpl;
+import start.DAOimpl.UtenteDAOimpl;
 import start.model.Utente;
 
 @Controller
@@ -23,20 +19,19 @@ import start.model.Utente;
 public class LoginController {
 	List<Utente> utenti;
 	@Autowired
-	private utenteDAOimpl utenteService;
+	private UtenteDAOimpl utenteService;
 
 	@GetMapping
-	public String showDefaultPage() {
+	public String showLoginPage() {
 		return "login"; // Il nome del file FTL senza estensione
 	}
 
 	@PostMapping("/login") // metodo per gestire i bottoni e le pagine di reindirizzo
-
 	public String mostraPagina(@RequestParam("action") String action, @RequestParam("username") String username,
 			@RequestParam("password") String password, Model model) {
 		if ("login".equals(action)) {
 			if (utenteService.controlloCredenziali(username, password)) {
-				this.ShowUtenti(model);// metodo per mostrare utenti su home.ftl come fossero post
+				HomeController.ShowUtenti(model);// metodo per mostrare utenti su home.ftl come fossero post
 					return "home";
 			} else {
 				return "errore";
@@ -59,9 +54,6 @@ public class LoginController {
 //		model.addAttribute("utenti",utenti);
 //			return "home";
 //	}
-	public  void ShowUtenti(Model model) {
-		List<Utente> utenti = utenteService.selezionaUtenti();   //metodo per mostrare utenti su home.ftl come fossero post (richiamato sopra)
-		model.addAttribute("utenti",utenti);
-	}
+	
 
 }

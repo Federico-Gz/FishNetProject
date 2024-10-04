@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
-import start.DAO.postDAO;
+import start.DAO.PostDAO;
 import start.model.Post;
-import start.repository.postRepository;
+import start.repository.PostRepository;
 
 @Service
-public class postDAOimpl implements postDAO {
+public class PostDAOimpl implements PostDAO {
 	@Autowired
-	private postRepository repository;
+	private PostRepository repository;
 
 	@Override
 	@Transactional

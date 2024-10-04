@@ -4,7 +4,7 @@ import java.util.List;
 
 import start.model.Post;
 
-public interface postDAO {
+public interface PostDAO {
 
 	void inserisciPost(Post p);
 

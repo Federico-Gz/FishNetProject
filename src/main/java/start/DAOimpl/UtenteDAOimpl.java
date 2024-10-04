@@ -8,12 +8,12 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
-import start.DAO.utenteDAO;
+import start.DAO.UtenteDAO;
 import start.model.Utente;
 import start.repository.UtenteRepository;
 
 @Service
-public class utenteDAOimpl implements utenteDAO {
+public class UtenteDAOimpl implements UtenteDAO {
 	@Autowired
 	private UtenteRepository repository;
 
