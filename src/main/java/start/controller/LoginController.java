@@ -25,7 +25,7 @@ public class LoginController {
 	public String showLoginPage() {
 		return "login"; // Il nome del file FTL senza estensione
 	}
-
+	
 	@PostMapping("/login") // metodo per gestire i bottoni e le pagine di reindirizzo
 	public String mostraPagina(@RequestParam String action, @RequestParam String username,
 			@RequestParam String password, Model model) {

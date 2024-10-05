@@ -40,10 +40,6 @@ public class RegisterController {
 					return "errore";
 				}
 			}
-		}else if(action.equals("indietro")) {
-			System.out.println("indietro premuto");
-			return "login";
-			
 		}
 		return "errore";
 	}

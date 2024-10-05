@@ -29,4 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }, { once: true });
         });
     }); 
+	
+	//Aggiunto tasto indietro che dalla pagina registrazione.ftl torna indietro
+	 document.getElementById('indietro').addEventListener('click', function() {
+			
+	        //torna alla pagina precedente
+			window.history.back();
+	    });
+	
 });
