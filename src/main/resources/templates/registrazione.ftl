@@ -30,25 +30,25 @@
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo">
 
-        <form class="mx-auto p-5 w-25 rounded-5" action="/login" method="post">
+        <form class="mx-auto p-5 w-25 rounded-5" action="/registrazioneOk" method="post">
             <div class="mb-3 d-flex flex-column">
-                <label for="name" class="form-label align-self-center raleway-1">Nome</label>
+                <label for="nome" class="form-label align-self-center raleway-1">Nome</label>
                 <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="name" name="name" placeholder="Inserisci il tuo nome" required>
+                    id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
             </div>
             <div class="mb-3 d-flex flex-column">
-                <label for="surname" class="form-label align-self-center raleway-1">Cognome</label>
+                <label for="cognome" class="form-label align-self-center raleway-1">Cognome</label>
                 <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="surname" name="surname" placeholder="Inserisci il tuo cognome" required>
+                    id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
             </div>
             <div class="mb-3 d-flex flex-column">
-                <label for="date" class="form-label align-self-center raleway-1">Data di nascita</label>
-                <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
-                    id="date" name="date" placeholder="Inserisci la tua data di nascita" required>
+                <label for="data_nascita" class="form-label align-self-center raleway-1">Data di nascita</label>
+                <input type="date" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
+                    id="data_nascita" name="data" placeholder="Inserisci la tua data di nascita" required>
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="email" class="form-label align-self-center raleway-1">Email</label>
-                <input type="text" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
+                <input type="email" class="form-control w-75 align-self-center text-center rounded-4 raleway-2"
                     id="email" name="email" placeholder="Inserisci la tua email" required>
             </div>
             <div class="mb-3 d-flex flex-column">
@@ -62,8 +62,8 @@
                     id="password" name="password" placeholder="Inserisci la tua password" required>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary m-2 raleway-1">Indietro</button>
-                <button type="submit" class="btn btn-secondary m-2 raleway-1">Registrati</button>
+                <button type="submit" name="action" value="indietro" class="btn btn-primary m-2 raleway-1" id="indietro">Indietro</button>
+                <button type="submit" name="action" value="registrati" class="btn btn-secondary m-2 raleway-1">Registrati</button>
             </div>
 
         </form>
@@ -77,7 +77,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
+        
+        <script src="/js/script.js"></script>
 </body>
 
 </html>

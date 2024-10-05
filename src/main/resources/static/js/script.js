@@ -28,5 +28,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 likeCounter.classList.remove("animate__animated", "animate__fadeInDown");
             }, { once: true });
         });
-    });
+    }); 
+	
+	//Aggiunto tasto indietro che dalla pagina registrazione.ftl torna indietro
+	 document.getElementById('indietro').addEventListener('click', function() {
+			
+	        //torna alla pagina precedente
+			window.history.back();
+	    });
+	
 });

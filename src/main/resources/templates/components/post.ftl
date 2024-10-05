@@ -20,8 +20,12 @@
 
     <div class="card-body">
         <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+           <!-- ogni volta che cicla da home.ftl utente è un nuovo utente della lista -->
+            Nome: ${utente.getNome()}, Username: ${utente.getUsername()}
+            
+       
+            <!--This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.-->
         </p>
         <div class="container d-flex justify-content-center align-items-center">
             <p class="like-counter m-0" id="like-counter-1">0</p>

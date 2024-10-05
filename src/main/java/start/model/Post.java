@@ -45,6 +45,10 @@ public class Post {
 		this.data_creazione = data;
 		this.img = img;
 	}
+	
+	public Post() {
+		
+	}
 
 	public Utente getUtente() {
 		return utente;
