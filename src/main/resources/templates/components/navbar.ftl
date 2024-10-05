@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             	<ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><h5>Home</h5></a>
+                        <a class="nav-link" href=""><h5>Home</h5></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><h5>Eventi</h5></a>
@@ -27,9 +27,7 @@
                 <form class="d-flex " role="search">
                     <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" style="background-color: #f9efef;"> 
                     <button class="btn btn-primary" type="submit">Cerca</button>
-                </form>
-             
-                
+                </form>               
             </div>
         </div>
     </nav>
