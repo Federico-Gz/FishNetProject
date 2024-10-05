@@ -1,0 +1,35 @@
+body{
+    background: linear-gradient(135deg, #ccb8b8 0%, #6baaf7 100%);
+}
+
+
+#pulsante{
+	cursor: pointer;
+}
+
+.creaPost{
+	display: none !important;
+}
+
+.centra{
+	position: absolute;
+	top: 300px;
+	align-self: center;
+	z-index: 1000;
+	text-align: center;
+}
+
+.sfoca{
+	opacity: 0.25;
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0); /* Completamente trasparente */
+  z-index: 999; /* Più alto rispetto agli altri elementi della pagina */
+}

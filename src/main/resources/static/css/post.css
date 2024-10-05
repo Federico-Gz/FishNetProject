@@ -1,0 +1,89 @@
+.wid{
+	width: 40%;
+	margin-top: 100px;
+	overflow: hidden;
+}
+
+
+.card{
+	overflow: hidden;
+	margin-top: 40px;
+	margin-bottom: 25px;
+}
+
+.img-profilo {
+    width: 25%;
+}
+
+
+h6, h7 {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+
+.button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer; 
+    transition: transform 0.1s ease, box-shadow 0.1s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 150px;
+	margin: 0px 10px;
+}
+
+.button img {
+    transition: transform 0.1s ease; 
+}
+
+.button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.button:hover img {
+    transform: scale(1.1); 
+}
+
+.button:active {
+    transform: scale(0.90); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.button:active img {
+    transform: scale(0.9); 
+}
+
+.like-counter{
+	padding: 5px;
+	
+	border-radius: 50px;
+}
+
+
+
+@media (max-width: 992px) {
+    h6, h7 {
+        font-size: 1rem; 
+    }
+    .img-profilo {
+        min-width: 40%; 
+    }
+}
+
+@media (max-width: 768px) {
+    h6, h7 {
+        font-size: 0.9rem; 
+    }
+    .img-profilo {
+        min-width: 35%; 
+    }
+}
+
+@media (max-width: 576px) {
+    h6, h7 {
+        font-size: 0.8rem; 
+    }
+    .img-profilo {
+        min-width: 30%; 
+    }
+}

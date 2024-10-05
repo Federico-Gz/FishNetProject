@@ -1,4 +1,4 @@
-package com.FishNet.FishNetProject;
+package start;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,10 @@ public class FishNetProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FishNetProjectApplication.class, args);
-	//ciao
+		
+		//saluti
+		
+		//daje ragazzi funziona lesgoski
 	}
 
 }
