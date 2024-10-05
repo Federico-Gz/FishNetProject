@@ -1,12 +1,13 @@
 package start.DAO;
 
+import java.time.LocalDate;
 import java.util.List;
 
 //import org.springframework.stereotype.Service;
 
 import start.model.Utente;
 
-public interface utenteDAO {
+public interface UtenteDAO {
 
 	void inserisciUtente(Utente u);
 
@@ -23,4 +24,12 @@ public interface utenteDAO {
 	long contaUtenti();
 	// Utente trovaUtentetramiteMail(String mail);
 
+	
+	void aggiungiImmagineProfilo(String path);
+	
+	public boolean controlloCredenziali(String username, String password);
+	
+	public boolean controlloPresenzaUserPw(String username, String email);
+	
+	public boolean controlloData(LocalDate data);
 }
