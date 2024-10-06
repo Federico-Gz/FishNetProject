@@ -1,10 +1,8 @@
 package start.DAOimpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import jakarta.transaction.Transactional;
 import start.DAO.PostDAO;
 import start.model.Post;
@@ -24,38 +22,47 @@ public class PostDAOimpl implements PostDAO {
 
 	@Override
 	public Post selezionaId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Post p = repository.findById(id).get();
+		return p;
 	}
 
 	@Override
 	public void cancellaPost(Post p) {
-		// TODO Auto-generated method stub
+		repository.delete(p);
 
 	}
 
 	@Override
 	public void cancellaPostTramiteId(Integer id) {
-		// TODO Auto-generated method stub
+		repository.deleteById(id);
 
 	}
 
 	@Override
 	public void aggiornaPost(Post p, Integer id) {
-		// TODO Auto-generated method stub
-
+		Post postDaAggiornare = repository.findById(id).get();
+		if(postDaAggiornare != null) {
+			postDaAggiornare.setUtente(p.getUtente());
+			postDaAggiornare.setContenuto(p.getContenuto());
+			postDaAggiornare.setDataOra(p.getDataOra());
+			postDaAggiornare.setImg(p.getImg());
+			postDaAggiornare.setLike(p.getLike());
+			postDaAggiornare.setDislike(p.getDislike());
+		}
+		else {
+			System.out.println("Post non presente nel Db");
+		}
 	}
 
 	@Override
 	public List<Post> selezionaPost() {
-		// TODO Auto-generated method stub
-		return null;
+		 return repository.findAll();
 	}
 
 	@Override
 	public long contaPost() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return repository.count();
 	}
 
 }

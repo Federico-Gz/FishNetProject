@@ -38,12 +38,12 @@ public class Utente {
 	@Column(name = "immagine")
 	private String img;
 	@OneToMany(mappedBy = "utente")
-	List<Post> postcreati;
+	List<Post> postCreati;
 	@OneToMany(mappedBy = "utente")
-	List<Evento> eventic_reati;
+	List<Evento> eventiCreati;
 	@ManyToMany
 	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name = "id_utente"), inverseJoinColumns = @JoinColumn(name = "id_evento"))
-	List<Evento> eventi_partecipati;
+	List<Evento> eventiPartecipati;
 
 	public Utente( String nome, String cognome,LocalDate data,String email, String username, String password) {
 		super();
@@ -123,4 +123,30 @@ public class Utente {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+	public List<Post> getPostCreati() {
+		return postCreati;
+	}
+
+	public void setPostCreati(List<Post> postCreati) {
+		this.postCreati = postCreati;
+	}
+
+	public List<Evento> getEventiCreati() {
+		return eventiCreati;
+	}
+
+	public void setEventiCreati(List<Evento> eventiCreati) {
+		this.eventiCreati = eventiCreati;
+	}
+
+	public List<Evento> getEventPartecipati() {
+		return eventiPartecipati;
+	}
+
+	public void setEventPartecipati(List<Evento> eventPartecipati) {
+		this.eventiPartecipati = eventPartecipati;
+	}
+	
+	
 }

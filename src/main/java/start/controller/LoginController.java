@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
 import start.DAO.UtenteDAO;
+import start.model.Post;
 import start.model.Utente;
 
 @Controller

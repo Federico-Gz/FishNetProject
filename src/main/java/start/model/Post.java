@@ -1,17 +1,13 @@
 package start.model;
 
-import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,32 +18,51 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPost;
 	@ManyToOne
-    @JoinColumn(name = "id_utente", nullable = false)
+	@JoinColumn(name = "id_utente", nullable = false)
 	private Utente utente;
-	@Column(name = "data_creazione", nullable = false)
-	private LocalDate data_creazione;
+	@Column(name = "data_ora", nullable = false)
+	private LocalDateTime dataOra;
 	@Column(name = "descrizione", nullable = false)
 	private String contenuto;
 	@Column(name = "immagine")
 	private String img;
+	@Column(name = "like")
+	private int like;
+	@Column(name = "dislike")
+	private int dislike;
 
-	public Post(Utente utente, LocalDate data_creazione, String contenuto, String img) {
+	public Post(Utente utente, String contenuto, String img) {
 		super();
 		this.utente = utente;
-		this.data_creazione = data_creazione;
+		this.dataOra = LocalDateTime.now();
 		this.contenuto = contenuto;
 		this.img = img;
+		this.like = 0;
+		this.dislike = 0;
 	}
 
-	public Post(Utente utente, LocalDate data, String img) {
+	public Post(Utente utente, String img) {
 		super();
 		this.utente = utente;
-		this.data_creazione = data;
+		this.dataOra = LocalDateTime.now();
+		this.contenuto = "";
 		this.img = img;
+		this.like = 0;
+		this.dislike = 0;
 	}
-	
+
+	public Post(String contenuto, Utente utente) {
+		super();
+		this.utente = utente;
+		this.dataOra = LocalDateTime.now();
+		this.img = "";
+		this.contenuto = contenuto;
+		this.like = 0;
+		this.dislike = 0;
+	}
+
 	public Post() {
-		
+
 	}
 
 	public Utente getUtente() {
@@ -56,14 +71,6 @@ public class Post {
 
 	public void setUtente(Utente utente) {
 		this.utente = utente;
-	}
-
-	public LocalDate getData() {
-		return data_creazione;
-	}
-
-	public void setData(LocalDate data) {
-		this.data_creazione = data;
 	}
 
 	public String getContenuto() {
@@ -81,5 +88,37 @@ public class Post {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+	public LocalDateTime getDataOra() {
+		return dataOra;
+	}
+
+	public void setDataOra(LocalDateTime dataOra) {
+		this.dataOra = dataOra;
+	}
+
+	public int getLike() {
+		return like;
+	}
+
+	public void setLike(int like) {
+		this.like = like;
+	}
+
+	public int getDislike() {
+		return dislike;
+	}
+
+	public void setDislike(int dislike) {
+		this.dislike = dislike;
+	}
+
+	public int getIdPost() {
+		return idPost;
+	}
+
+//	public void setIdPost(int idPost) {
+//		this.idPost = idPost;
+//	}
 
 }

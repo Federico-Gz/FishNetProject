@@ -19,6 +19,5 @@ public interface PostDAO {
 	List<Post> selezionaPost();
 
 	long contaPost();
-	// Utente trovaUtentetramiteMail(String mail);
 
 }
