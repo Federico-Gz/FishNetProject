@@ -27,6 +27,38 @@
 </head>
 
 <body>
+
+<!-- Se username ed email sono già presenti nel db compare il messaggio di errore che viene passato dal model "userEmailInUso" -->
+	<#if userEmailInUso??>
+		<div class="alert alert-danger">
+			${userEmailInUso}
+		</div>
+	</#if>
+	
+	<!-- compare se solo l'username è già presente nel db -->
+	
+	<#if userInUso??>
+		<div class="alert alert-danger">
+			${userInUso}
+		</div>
+	</#if>
+	
+	<!-- compare se solo la password è già presente nel db -->
+	
+	<#if emailInUso??>
+		<div class="alert alert-danger">
+			${emailInUso}
+		</div>
+	</#if>
+	
+	<!-- compare se solo la data di nascita è errata-->
+	
+	<#if dataErrata??>
+		<div class="alert alert-danger">
+			${dataErrata}
+		</div>
+	</#if>
+
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo">
 

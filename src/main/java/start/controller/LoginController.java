@@ -37,7 +37,9 @@ public class LoginController {
 				this.inserisciPost(model);
 					return "home"; // Le credenziali erano corrette accedi alla home
 			} else {
-				return "errore"; // Le credenziali erano errate
+				// messaggio che viene passato alla pagina login.ftl quando la pagina viene ricaricata
+				model.addAttribute("credenzialiErrate", "Username o password errati");
+				return "login"; // Le credenziali erano errate
 			}
 
 		}

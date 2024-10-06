@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,17 +28,27 @@ public class RegisterController {
 	}
 
 	@PostMapping("/registrazioneOk") // metodo per inserire un nuovo utente
-	public String inserisciUtente(@ModelAttribute Utente utente,@RequestParam String action) {
+	public String inserisciUtente(@ModelAttribute Utente utente,@RequestParam String action,Model model) {
 		if(action.equals("registrati")) {
+			// Viene controllato che username, password non siano già presenti nel db e che la data di nascita non sia errata
 			if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
-				return "errore";
-			} else {
+				model.addAttribute("userEmailInUso", "Risulta già un utente registrato con questo indirizzo email ed username");
+				return "registrazione";
+			}else if(utenteService.controlloPresenzaUser(utente.getUsername())){
+				model.addAttribute("userInUso", "Risulta già un utente registrato con questo username");
+				return "registrazione";
+			}else if(utenteService.controlloPresenzaEmail(utente.getEmail())){
+				model.addAttribute("emailInUso", "Risulta già un utente registrato con questo indirizzo email");
+				return "registrazione";
+			}
+			else {
 				if(!utenteService.controlloData(utente.getData())) {
 					utenteService.inserisciUtente(utente);
 					return "login";
 				}
 				else {
-					return "errore";
+					model.addAttribute("dataErrata", "La data di nascita è errata");
+					return "registrazione";
 				}
 			}
 		}
