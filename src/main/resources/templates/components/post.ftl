@@ -15,7 +15,7 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <img src="/img/pescatore.jpg" class="card-img-top w-100 p-3" alt="img-content" />
+        <img src="C:/Users/Administrator/Desktop/Uploads/Stile di lavoro.PNG" class="card-img-top w-100 p-3"/>
     </div>
 
     <div class="card-body">

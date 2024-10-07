@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "post")
-
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,17 +25,21 @@ public class Post {
 	private String descrizione;
 	@Column(name = "immagine")
 	private String img;
-	@Column(name = "like")
-	private int like;
+	@ManyToOne
+    @JoinColumn(name = "id_luogo", nullable = false)
+    private Luogo luogo;
+	@Column(name = "mi_piace")
+	private int mi_piace;
 	@Column(name = "dislike")
 	private int dislike;
 
-	public Post(Utente utente, String contenuto, String img) {
+	public Post(Utente utente, String contenuto, String img,Luogo luogo) {
 		super();
 		this.setUtente(utente);
 		this.setDataOra(LocalDateTime.now());
 		this.setDescrizione(contenuto);
 		this.setImg(img);
+		this.setLuogo(luogo);
 		this.setLike(0);
 		this.setDislike(0);
 	}
@@ -98,11 +101,11 @@ public class Post {
 	}
 
 	public int getLike() {
-		return like;
+		return mi_piace;
 	}
 
 	public void setLike(int like) {
-		this.like = like;
+		this.mi_piace = like;
 	}
 
 	public int getDislike() {
@@ -117,8 +120,12 @@ public class Post {
 		return idPost;
 	}
 
-//	public void setIdPost(int idPost) {
-//		this.idPost = idPost;
-//	}
+	public Luogo getLuogo() {
+		return luogo;
+	}
+
+	public void setLuogo(Luogo luogo) {
+		this.luogo = luogo;
+	}
 
 }

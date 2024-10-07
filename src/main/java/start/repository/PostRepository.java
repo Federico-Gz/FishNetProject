@@ -7,4 +7,5 @@ import start.model.Post;
 
 public interface PostRepository extends JpaRepository<Post,Integer> {
 
+	
 }
