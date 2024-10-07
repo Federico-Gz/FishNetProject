@@ -4,7 +4,7 @@
             <div class="d-flex w-50">
                 <img src="/img/logo.png" alt="Logo" class="d-flex align-self-center img-profilo" />
                 <div class="d-flex flex-column align-self-center mt-3">
-                    <h6 class="align-self-center">Nome profilo</h6>
+                    <h6 class="align-self-center">${post.getUtente().getUsername()}</h6>
                     <p class="align-self-center">Luogo</p>
                 </div>
             </div>
@@ -20,9 +20,9 @@
 
     <div class="card-body">
         <p class="card-text">
-           <!-- ogni volta che cicla da home.ftl utente è un nuovo utente della lista -->
-            Nome: ${utente.getNome()}, Username: ${utente.getUsername()}
-          
+           <!-- recupera la descrizione di ogni post presente il listaPost -->
+            
+                      ${post.getDescrizione()}
             
        
             <!--This is a wider card with supporting text below as a natural lead-in

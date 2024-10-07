@@ -36,4 +36,7 @@ public interface UtenteDAO {
 	public boolean controlloPresenzaEmail(String email);
 	
 	public boolean controlloData(LocalDate data);
+	
+	public Utente selezionaUtenteByUsername(String username);
+	
 }

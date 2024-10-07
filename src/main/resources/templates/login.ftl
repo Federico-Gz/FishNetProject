@@ -30,7 +30,7 @@
 	    </div>
 	</#if>
 
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="d-flex flex-column justify-content-center align-items-center">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo"  >
         
         <form class="mx-auto p-5 w-25 rounded-5" action="/login" method="post"> 

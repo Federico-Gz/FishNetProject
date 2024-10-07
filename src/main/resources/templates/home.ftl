@@ -27,10 +27,15 @@
     <div class=" d-flex w-100 flex-column justify-content-center align-items-center ">
            <#include "/components/navbar.ftl"/>
            <div class="container d-flex flex-column wid ">
-           <!--serve per ciclare sulla lista di utenti, crea tante pagine post.ftl quanti sono gli utenti nella lista -->
-           <#list utenti as utente>
-           		<#include "/components/post.ftl"/>
-           		</#list>
+           
+           <!--serve per ciclare sulla lista di post, crea tante pagine post.ftl quanti sono i post nella lista -->
+           <#if listaPost??> <!-- Verifica se listaPost esiste -->             
+                  <#list listaPost as post>
+                     <#include "/components/post.ftl"/> 
+                  </#list>              
+            <#else>
+                 <p>Nessun post disponibile</p> <!-- Messaggio se listaPost è null -->
+            </#if>
            		
            </div>      
     </div>

@@ -23,7 +23,7 @@ public class Post {
 	@Column(name = "data_ora", nullable = false)
 	private LocalDateTime dataOra;
 	@Column(name = "descrizione", nullable = false)
-	private String contenuto;
+	private String descrizione;
 	@Column(name = "immagine")
 	private String img;
 	@Column(name = "like")
@@ -33,32 +33,32 @@ public class Post {
 
 	public Post(Utente utente, String contenuto, String img) {
 		super();
-		this.utente = utente;
-		this.dataOra = LocalDateTime.now();
-		this.contenuto = contenuto;
-		this.img = img;
-		this.like = 0;
-		this.dislike = 0;
+		this.setUtente(utente);
+		this.setDataOra(LocalDateTime.now());
+		this.setDescrizione(contenuto);
+		this.setImg(img);
+		this.setLike(0);
+		this.setDislike(0);
 	}
 
 	public Post(Utente utente, String img) {
 		super();
-		this.utente = utente;
-		this.dataOra = LocalDateTime.now();
-		this.contenuto = "";
-		this.img = img;
-		this.like = 0;
-		this.dislike = 0;
+		this.setUtente(utente);
+		this.setDataOra(LocalDateTime.now());
+		this.setDescrizione("");
+		this.setImg(img);
+		this.setLike(0);
+		this.setDislike(0);
 	}
 
 	public Post(String contenuto, Utente utente) {
 		super();
-		this.utente = utente;
-		this.dataOra = LocalDateTime.now();
-		this.img = "";
-		this.contenuto = contenuto;
-		this.like = 0;
-		this.dislike = 0;
+		this.setUtente(utente);
+		this.setDataOra(LocalDateTime.now());
+		this.setDescrizione("");
+		this.setImg(img);
+		this.setLike(0);
+		this.setDislike(0);
 	}
 
 	public Post() {
@@ -73,12 +73,12 @@ public class Post {
 		this.utente = utente;
 	}
 
-	public String getContenuto() {
-		return contenuto;
+	public String getDescrizione() {
+		return descrizione;
 	}
 
-	public void setContenuto(String contenuto) {
-		this.contenuto = contenuto;
+	public void setDescrizione(String contenuto) {
+		this.descrizione = contenuto;
 	}
 
 	public String getImg() {

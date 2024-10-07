@@ -3,7 +3,12 @@
             <a class="navbar-brand d-flex" href="#">
                 <img src="/img/logo.png" alt="Logo" width="76" height="70"
                     class="d-inline-block align-text-top">
-                <h4 class="d-flex align-self-center w-25 p-3">Nome profilo</h4>
+                <h4 class="d-flex align-self-center w-25 p-3">
+                
+                <!--recupera il nom dell'utente loggato-->
+                ${utente.getUsername()}
+                       
+                </h4>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

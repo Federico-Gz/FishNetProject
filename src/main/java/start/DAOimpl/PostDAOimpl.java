@@ -21,7 +21,7 @@ public class PostDAOimpl implements PostDAO {
 	}
 
 	@Override
-	public Post selezionaId(Integer id) {
+	public Post selezionaPostById(Integer id) {
 		Post p = repository.findById(id).get();
 		return p;
 	}
@@ -43,7 +43,7 @@ public class PostDAOimpl implements PostDAO {
 		Post postDaAggiornare = repository.findById(id).get();
 		if(postDaAggiornare != null) {
 			postDaAggiornare.setUtente(p.getUtente());
-			postDaAggiornare.setContenuto(p.getContenuto());
+			postDaAggiornare.setDescrizione(p.getDescrizione());
 			postDaAggiornare.setDataOra(p.getDataOra());
 			postDaAggiornare.setImg(p.getImg());
 			postDaAggiornare.setLike(p.getLike());
@@ -55,7 +55,7 @@ public class PostDAOimpl implements PostDAO {
 	}
 
 	@Override
-	public List<Post> selezionaPost() {
+	public List<Post> selezionaTuttiPost() {
 		 return repository.findAll();
 	}
 

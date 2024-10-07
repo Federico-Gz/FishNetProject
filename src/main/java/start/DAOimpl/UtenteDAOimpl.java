@@ -95,7 +95,7 @@ public class UtenteDAOimpl implements UtenteDAO {
 		}
 		return presente;
 	}
-	
+
 	@Override
 	public boolean controlloPresenzaUser(String username) {
 		boolean presente = false;
@@ -108,7 +108,7 @@ public class UtenteDAOimpl implements UtenteDAO {
 		}
 		return presente;
 	}
-	
+
 	@Override
 	public boolean controlloPresenzaEmail(String email) {
 		boolean presente = false;
@@ -121,20 +121,24 @@ public class UtenteDAOimpl implements UtenteDAO {
 		}
 		return presente;
 	}
-	
-@Override
+
+	@Override
 	public boolean controlloData(LocalDate data) {
 		boolean invalidDate;
 		LocalDate dataOggi = LocalDate.now();
 		if (data.isAfter(dataOggi)) {
 			invalidDate = true;
-		}else {
-			invalidDate=false;
+		} else {
+			invalidDate = false;
 		}
 		return invalidDate;
 	}
 
+	@Override
+	public Utente selezionaUtenteByUsername(String username) {
+		Utente u = repository.findByUsername(username);
+		return u;
 
-
+	}
 
 }

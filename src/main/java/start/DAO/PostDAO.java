@@ -8,7 +8,7 @@ public interface PostDAO {
 
 	void inserisciPost(Post p);
 
-	Post selezionaId(Integer id);
+	Post selezionaPostById(Integer id);
 
 	void cancellaPost(Post p);
 
@@ -16,7 +16,7 @@ public interface PostDAO {
 
 	void aggiornaPost(Post p, Integer id);
 
-	List<Post> selezionaPost();
+	List<Post> selezionaTuttiPost();
 
 	long contaPost();
 

@@ -7,4 +7,5 @@ import start.model.Utente;
 
 public interface UtenteRepository extends JpaRepository<Utente, Integer> {
 	Utente findByUsernameAndPassword(String username, String password);
+	Utente findByUsername(String username);
 }
