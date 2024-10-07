@@ -8,11 +8,11 @@
     <#-- LINK BOOTSTRAP-->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<<<<<<< Updated upstream
+
     <link rel="stylesheet" href="/css/login.css">
-=======
+
     <link rel="stylesheet" href="../static/login.css">
->>>>>>> Stashed changes
+
 
 	<#-- LINK GOOGLE FONT-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
 
 </head>
 <body>
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="d-flex flex-column justify-content-center align-items-center ">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo"  >
         
         <form class="mx-auto p-5 w-25 rounded-5" action="/login" method="post"> 
@@ -43,7 +43,7 @@
             
         </form>
 
-        <img src="/img/logo.png" alt="Logo" class="img-logo mb-3"> <!-- Logo centrato con margine sotto -->
+        <img src="/img/logo.png" alt="Logo" class="img-logo mb-3"> 
         <footer class="d-flex flex-column w-100 justify-content-center align-items-center">
             <p class="raleway-1">&copy; FishNet. Tutti i diritti riservati.</p>
             <p class="raleway-1">Francesco Amerio | Luca Greco | Federico Graziani | Luigi De Lucia | Enrico Valle</p>

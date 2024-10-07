@@ -1,6 +1,13 @@
-body{
-    background: linear-gradient(135deg, #ccb8b8 0%, #6baaf7 100%);
+ul{
+	list-style-type: none;
 }
+
+
+label {
+    text-align: left;
+    display: block;
+}
+
 
 #pulsante{
 	margin-right: 20px;
@@ -25,13 +32,13 @@ body{
 }
 
 
-.creaPost{
+.creaEvento{
 	display: none !important;
 }
 
 .centra{
 	position: absolute;
-	top: 300px;
+	top: 10px;
 	align-self: center;
 	z-index: 1000;
 	text-align: center;
@@ -47,7 +54,6 @@ body{
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0); /* Completamente trasparente */
-  z-index: 999; /* Più alto rispetto agli altri elementi della pagina */
+  background-color: rgba(0, 0, 0, 0); 
+  z-index: 999;
 }
-

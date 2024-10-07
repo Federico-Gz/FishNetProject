@@ -24,28 +24,36 @@
         </div>
 
         <div class="container d-flex mt-5">
-            <div class="card-text p-2 shadow-sm p-3 m-3 bg-body-tertiary rounded w-50">
+            <div class=" card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-center">
                 <ul>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
+                </ul>
+                <ul>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
                 </ul>
             </div>
-            <div class="card-text p-2 shadow-sm p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center">
+            <div class="card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center">
                 <img src="/img/FishNet.png" class="img-thumbnail w-50"
                     alt="...">
             </div>
         </div>
 
         <div class="container d-flex">
-            <div class="card-text p-2 shadow-sm p-3 m-3 bg-body-tertiary rounded w-50">
+            <div class="d-flex card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded justify-content-evenly w-50 align-items-center">
                 <ul>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
+                    <li class="m-3">ciao</li>
+                </ul>
+                <ul>
+                    <li class="m-3">ciao</li>
                 </ul>
             </div>
-            <div class="card-text p-2 shadow-sm p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center">
+            <div class="card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center">
                 <p class="like-counter m-0" id="like-counter">0</p>
                 <a class="navbar-brand button" id="like-button" href="#" style="padding: 1px;">
                     <img src="/img/like.png" width="60" height="50">

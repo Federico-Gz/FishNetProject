@@ -21,7 +21,7 @@ public class UtenteController {
 
 		Utente u = new Utente("utente@gmail.com", "carlo", "giovanni", "vasco", "danilo");
 		utenteService.inserisciUtente(u);
-		return "home";
+		return "eventi";
 	}
 	
 }
