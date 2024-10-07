@@ -14,8 +14,8 @@ public class NavbarController {
 		return "login";
 	}
 	
-//	@GetMapping("/showHome")
-//	public String showHome() {  Richiamato dal tasto home della navbar 
-//		return "home";          al momento non funziona perchè la lista di utenti che popola i post viene passata dal LoginController
-//	}
+	@GetMapping("/showHome")
+	public String showHome() { // Richiamato dal tasto home della navbar 
+		return "home";         // al momento non funziona perchè la lista di utenti che popola i post viene passata dal LoginController
+	}
 }

@@ -7,14 +7,19 @@
 </head>
 <body>
     <h1>Carica un'immagine</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="contenuto">Testo post:</label>
-        <input type="text" id="contenuto" name="contenuto"><br><br>
-        
-        <label for="file">Seleziona un'immagine:</label>
-        <input type="file" id="file" name="file" accept="image/*"><br><br>
-        
-        <input type="submit" value="Carica">
-    </form>
+    
+    <form th:action="@{/showPost}"
+    th:object="${post}" method="post"
+    enctype="multipart/form-data"
+    >
+    ...
+    <div>
+     
+    <label>Photos: </label>
+    <input type="file" name="image" accept="image/png, image/jpeg" />
+     
+    </div>
+    ...
+</form>
 </body>
 </html>

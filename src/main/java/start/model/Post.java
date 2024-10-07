@@ -22,7 +22,7 @@ public class Post {
 	private Utente utente;
 	@Column(name = "data_ora", nullable = false)
 	private LocalDateTime dataOra;
-	@Column(name = "descrizione", nullable = false)
+	@Column(name = "descrizione")
 	private String descrizione;
 	@Column(name = "immagine")
 	private String img;

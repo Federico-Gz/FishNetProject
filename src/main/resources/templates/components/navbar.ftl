@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             	<ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><h5>Home</h5></a>
+                        <a class="nav-link" href="/showHome"><h5>Home</h5></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><h5>Eventi</h5></a>
