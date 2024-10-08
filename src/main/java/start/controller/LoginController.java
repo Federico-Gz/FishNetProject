@@ -69,9 +69,9 @@ public class LoginController {
 		session.setAttribute("listaPost", listaPost);
 		session.setAttribute("utente", utente); // aggiunto al model l'utente per far comparire il nome dell'utente loggato su navbar.ftl
 
-		for(Post p: listaPost) {
-			System.out.println(p.getImg());
-		}
+//		for(Post p: listaPost) {
+//			System.out.println(p.getImg());
+//		}
 	}
 	
 

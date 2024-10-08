@@ -14,7 +14,7 @@ public class Dislike {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_mi_piace;
+    private int id_dislike;
     @ManyToOne
     @JoinColumn(name="id_utente",nullable=false)
     private Utente utente;
@@ -24,11 +24,20 @@ public class Dislike {
 
     public Dislike() {}
 
-    public int getId_mi_piace() {
-        return id_mi_piace;
-    }
+    public Dislike(Utente utente, Post post) {
+    	this.setUtente(utente);
+    	this.setPost(post);
+    }   
 
-    public Utente getUtente() {
+    public int getId_dislike() {
+		return id_dislike;
+	}
+
+	public void setId_dislike(int id_dislike) {
+		this.id_dislike = id_dislike;
+	}
+
+	public Utente getUtente() {
         return utente;
     }
 

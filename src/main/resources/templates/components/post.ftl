@@ -8,7 +8,7 @@
                     <p class="align-self-center">${post.getFormattedDataOra()}</p>
                 </div>
                 
-            </div>
+                </div>
 	            <div class="btn-group dropend">
 	                      <button type="button" class="btn bg-transparent border border-0 text-body m-3 " data-bs-toggle="dropdown" aria-expanded="false">
 	                        <a href="#" class="align-self-start p-3">
@@ -39,14 +39,13 @@
         </p>
         <div class="container d-flex justify-content-center align-items-center">
 			 <form action="addInteraction" method="post" class="d-flex justify-content-center align-items-center" >
-	            <p class="like-counter m-0">0</p>
+	            <p class="like-counter m-0" id="like-counter-1">0</p>
 	            <input type="hidden" name="id_post" value="${post.getIdPost()}">
 	            <button type="submit" name="action" value="like" class="navbar-brand button" id="like-button-${post.getIdPost()}" style="padding: 1px;">
 	                <img src="../img/like.png" width="60" height="50">
 	            </button>
-	
-	
-	            <button type="submit" name="action" value="dislike" class="navbar-brand button" id="dislike-button-1" data-post-id="1" style="padding: 1px;">
+
+	            <button type="submit" name="action" value="dislike" class="navbar-brand button" id="dislike-button-${post.getIdPost()}" data-post-id="1" style="padding: 1px;">
 	                <img src="../img/notLike.png" width="60" height="50">
 	            </button>
 	

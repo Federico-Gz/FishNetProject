@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg w-100 p-3" style="background: linear-gradient(135deg, #d8d8d8 0%, #a4caf8 100%);">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex" href="#">
+            <a class="navbar-brand d-flex" href="/profilo">
                 <img src="/img/logo.png" alt="Logo" width="76" height="70"
                     class="d-inline-block align-text-top">
                 <h4 class="d-flex align-self-center w-25 p-3">
@@ -20,7 +20,7 @@
                         <a class="nav-link" href="/showHome"><h5>Home</h5></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><h5>Eventi</h5></a>
+                        <a class="nav-link" href="/eventi"><h5>Eventi</h5></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><h5>Mappa</h5></a>

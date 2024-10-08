@@ -11,9 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
+import start.DAO.DislikeDAO;
 import start.DAO.LuogoDAO;
+import start.DAO.Mi_piaceDAO;
 import start.DAO.PostDAO;
+import start.model.Dislike;
 import start.model.Luogo;
+import start.model.Mi_piace;
 import start.model.Post;
 import start.model.Utente;
 
@@ -24,74 +28,84 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class PostController {
-	
-	@Autowired 
-	private PostDAO postService;
+
+	@Autowired
+	private DislikeDAO dislikeService;
 	
 	@Autowired
-	private LuogoDAO luogoService;
+	private Mi_piaceDAO likeService;
 	
+	@Autowired
+	private PostDAO postService;
+
+	@Autowired
+	private LuogoDAO luogoService;
+
 	@GetMapping("/inserisciPost")
 	public String inserisciPost() {
 		return "creaPostTest";
 	}
-	
-    @Value("${upload.directory}")  // Recupera il valore dal file application.properties
-    private String uploadDirectory;
 
-    @PostMapping("/posts/save")
-    public String savePost(@RequestParam("image") MultipartFile file,@RequestParam("descrizione") String descrizione,HttpSession session,RedirectAttributes redirectAttributes) {
-        try {
-            // Controlla se il file non è vuoto
-            if (!file.isEmpty()) {
-                // Recupera il nome del file caricato
-                String fileName = file.getOriginalFilename();
-                // Costruisci il percorso completo del file
-                String filePath = uploadDirectory + fileName;
-                //session.setAttribute("filePath",filePath); //modifica fatta per inserire img nel progetto 
+	@Value("${upload.directory}") // Recupera il valore dal file application.properties
+	private String uploadDirectory;
 
-                // Salva il file nella cartella esterna
-                Path path = Paths.get(filePath);
-                Files.write(path, file.getBytes());
+	@PostMapping("/posts/save")
+	public String savePost(@RequestParam("image") MultipartFile file, @RequestParam("descrizione") String descrizione,
+			HttpSession session, RedirectAttributes redirectAttributes) {
+		try {
+			// Controlla se il file non è vuoto
+			if (!file.isEmpty()) {
+				// Recupera il nome del file caricato
+				String fileName = file.getOriginalFilename();
+				// Costruisci il percorso completo del file
+				String filePath = uploadDirectory + fileName;
+				// session.setAttribute("filePath",filePath); //modifica fatta per inserire img
+				// nel progetto
 
-                // Puoi memorizzare il percorso del file nel database o altre operazioni
-                Utente utente = (Utente) session.getAttribute("utente");
-                Luogo l = new Luogo("Savona",44.2975603,8.4645);
-                luogoService.inserisciLuogo(l);
-                //Post post = new Post(utente,descrizione, filePath,l); //modifica fatta per inserire img nel progetto
-                Post post = new Post(utente,descrizione,fileName,l);//prima si utilizzava post riga 64
-                postService.inserisciPost(post);
-//                List<Post> listaPost = postService.selezionaTuttiPost();
-//        		if (listaPost == null) {
-//        			listaPost = new ArrayList<>(); // Inizializza con una lista vuota
-//        		}
-//        		    		
-//        		listaPost.add(post);
-                session.setAttribute("post", post);
-                List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
-                listaPost.add(post);
-                session.setAttribute("listaPost", listaPost);
-                System.out.println("File salvato in: " + fileName);
-                
-            }
+				// Salva il file nella cartella esterna
+				Path path = Paths.get(filePath);
+				Files.write(path, file.getBytes());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("message", "Errore durante il caricamento del file");
-        }
+				// Puoi memorizzare il percorso del file nel database o altre operazioni
+				Utente utente = (Utente) session.getAttribute("utente");
+				Luogo l = new Luogo("Savona", 44.2975603, 8.4645);
+				luogoService.inserisciLuogo(l);
+				// Post post = new Post(utente,descrizione, filePath,l); //modifica fatta per
+				// inserire img nel progetto
+				Post post = new Post(utente, descrizione, fileName, l);// prima si utilizzava post riga 64
+				postService.inserisciPost(post);
+				
+				utente.getPostCreati().add(post);
+				System.out.println("Numero post: "+utente.getPostCreati().size()+"utente : " +utente.getUsername());	
 
-        return "home";  // Redirigi a una pagina di successo
-    }
-    
-    @PostMapping("/addInteraction")
-    public String addLike(@RequestParam String action,@RequestParam int id_post ,HttpSession session) {
+				session.setAttribute("post", post);
+				List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
+				listaPost.add(post);
+				session.setAttribute("listaPost", listaPost);
+				System.out.println("File salvato in: " + fileName);
 
+			}
 
-        if (action.equals("like")) {
-            System.out.println("like ins");
+		} catch (IOException e) {
+			e.printStackTrace();
+			redirectAttributes.addFlashAttribute("message", "Errore durante il caricamento del file");
+		}
+
+		return "home"; // Redirigi a una pagina di successo
+	}
+
+	@PostMapping("/addInteraction")
+	public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session) {
+
+		System.out.println("action: " + action);
+		System.out.println("id post: " + id_post);
+
+		if (action.equals("like")) {
+			System.out.println("like ins");
 //            Utente u = (Utente) session.getAttribute("utente");
 //            List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
 //            for (Post p : listaPost) {
@@ -110,14 +124,29 @@ public class PostController {
 //                }
 //            }
 
-        } else if (action.equals("dislike")) {
+		} else if (action.equals("dislike")) {
 
-            // azione per dislike
-        }
+			
+			Utente u = (Utente) session.getAttribute("utente");
+			List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
+			Post postCorretto=null;
+			for (Post p : listaPost) {
+				if (p.getIdPost() == id_post) {
+					postCorretto=p;
+					System.out.println("dislike ins");
+				}
+			}
+		    Set<Dislike> dislikes = postCorretto.getDislikes();
+		    for(Dislike d: dislikes) {
+		    	if(!d.getUtente().getUsername().equals(u.getUsername())) {
+		    		Dislike dislike = new Dislike(u,postCorretto);
+		    		dislikeService.inserisciDislike(dislike);
+		    	}
+		    }
+		}
 
-        return "home";
+		return "home";
 
-    }
+	}
 
-    
 }

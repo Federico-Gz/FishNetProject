@@ -1,12 +1,14 @@
 package start.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,7 +39,7 @@ public class Utente {
     private String password;
     @Column(name = "immagine")
     private String img;
-    @OneToMany(mappedBy = "utente")
+    @OneToMany(mappedBy = "utente",fetch = FetchType.EAGER)
     private List<Post> postCreati;
     @OneToMany(mappedBy = "utente")
     private List<Evento> eventiCreati;
@@ -48,6 +50,7 @@ public class Utente {
     private Set<Mi_piace> likes;
     @OneToMany(mappedBy = "utente")
     private Set<Dislike> dislikes;
+    
 public Utente( String nome, String cognome,LocalDate data,String email, String username, String password) {
         super();
         this.setEmail(email);
@@ -56,6 +59,9 @@ public Utente( String nome, String cognome,LocalDate data,String email, String u
         this.setUsername(username);
         this.setPassword(password);
         this.setData(data);
+        this.postCreati = new ArrayList<>();
+        this.eventiCreati = new ArrayList<>();
+        this.eventiPartecipati = new ArrayList<>();
         this.likes = new HashSet<>();
         this.dislikes = new HashSet<>();
     }
