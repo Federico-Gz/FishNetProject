@@ -38,5 +38,6 @@ public interface UtenteDAO {
 	public boolean controlloData(LocalDate data);
 	
 	public Utente selezionaUtenteByUsername(String username);
-	
+
+
 }
