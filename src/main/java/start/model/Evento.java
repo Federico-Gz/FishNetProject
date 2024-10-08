@@ -27,27 +27,27 @@ public class Evento {
 	@JoinColumn(name = "id_utente", nullable = false)
 	private Utente utente;
 	@Column(name = "data_evento", nullable = false)
-	private LocalDate data_evento;
+	private LocalDate dataEvento;
 	@Column(name = "data_creazione", nullable = false)
-	private LocalDate data_creazione;
+	private LocalDate dataCreazione;
 	@Column(name = "descrizione", nullable = false)
 	private String descrizione;
 	@Column(name = "numero_max", nullable = false)
-	private int numero_max;
+	private int numeroMax;
 	@Column(name = "numero_iscritti")
-	private int numero_iscritti;
+	private int numeroIscritti;
 	@Column(name = "immagine")
 	private String immagine;
-	@ManyToMany(mappedBy = "eventi_partecipati")
+	@ManyToMany(mappedBy = "eventiPartecipati")
 	List<Utente> partecipanti;
 
 	public Evento(Utente utente, LocalDate data_evento, LocalDate data_creazione, String descrizione, int numero_max) {
 		super();
 		this.utente = utente;
-		this.data_evento = data_evento;
-		this.data_creazione = data_creazione;
+		this.dataEvento = data_evento;
+		this.dataCreazione = data_creazione;
 		this.descrizione = descrizione;
-		this.numero_max = numero_max;
+		this.numeroMax = numero_max;
 		this.partecipanti = new ArrayList<>();
 	}
 
@@ -55,10 +55,10 @@ public class Evento {
 			String immagine) {
 		super();
 		this.utente = utente;
-		this.data_evento = data_evento;
-		this.data_creazione = data_creazione;
+		this.dataEvento = data_evento;
+		this.dataCreazione = data_creazione;
 		this.descrizione = descrizione;
-		this.numero_max = numero_max;
+		this.numeroMax = numero_max;
 		this.immagine = immagine;
 		this.partecipanti = new ArrayList<>();
 	}
@@ -80,19 +80,19 @@ public class Evento {
 	}
 
 	public LocalDate getData_evento() {
-		return data_evento;
+		return dataEvento;
 	}
 
 	public void setData_evento(LocalDate data_evento) {
-		this.data_evento = data_evento;
+		this.dataEvento = data_evento;
 	}
 
 	public LocalDate getData_creazione() {
-		return data_creazione;
+		return dataCreazione;
 	}
 
 	public void setData_creazione(LocalDate data_creazione) {
-		this.data_creazione = data_creazione;
+		this.dataCreazione = data_creazione;
 	}
 
 	public String getDescrizione() {
@@ -104,19 +104,19 @@ public class Evento {
 	}
 
 	public int getNumero_max() {
-		return numero_max;
+		return numeroMax;
 	}
 
 	public void setNumero_max(int numero_max) {
-		this.numero_max = numero_max;
+		this.numeroMax = numero_max;
 	}
 
 	public int getNumero_iscritti() {
-		return numero_iscritti;
+		return numeroIscritti;
 	}
 
 	public void setNumero_iscritti(int numero_iscritti) {
-		this.numero_iscritti = numero_iscritti;
+		this.numeroIscritti = numero_iscritti;
 	}
 
 	public String getImmagine() {

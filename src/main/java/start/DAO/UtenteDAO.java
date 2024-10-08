@@ -31,5 +31,12 @@ public interface UtenteDAO {
 	
 	public boolean controlloPresenzaUserPw(String username, String email);
 	
+	public boolean controlloPresenzaUser(String username);
+	
+	public boolean controlloPresenzaEmail(String email);
+	
 	public boolean controlloData(LocalDate data);
+	
+	public Utente selezionaUtenteByUsername(String username);
+	
 }

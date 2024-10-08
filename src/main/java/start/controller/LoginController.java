@@ -1,5 +1,6 @@
 package start.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.ui.Model;
 
+import start.DAO.PostDAO;
 import start.DAO.UtenteDAO;
+import start.model.Post;
 import start.model.Utente;
 
 @Controller
@@ -20,6 +25,9 @@ public class LoginController {
 	
 	@Autowired
 	private UtenteDAO utenteService;
+	
+	@Autowired 
+	private PostDAO postService;
 
 	@GetMapping
 	public String showLoginPage() {
@@ -28,16 +36,15 @@ public class LoginController {
 	
 	@PostMapping("/login") // metodo per gestire i bottoni e le pagine di reindirizzo
 	public String mostraPagina(@RequestParam String action, @RequestParam String username,
-			@RequestParam String password, Model model) {
+			@RequestParam String password, HttpSession session) {
 		if (action.equals("login")) {
 			if (utenteService.controlloCredenziali(username, password)) { 
-				// metodo per mostrare utenti su home.ftl come fossero post
-//				List<Utente> utenti = utenteService.selezionaUtenti();
-//				model.addAttribute("utenti",utenti);
-				this.inserisciPost(model);
+				this.showAllPost(session, username);
 					return "home"; // Le credenziali erano corrette accedi alla home
 			} else {
-				return "errore"; // Le credenziali erano errate
+				// messaggio che viene passato alla pagina login.ftl quando la pagina viene ricaricata
+				session.setAttribute("credenzialiErrate", "Username o password errati");
+				return "login"; // Le credenziali erano errate
 			}
 
 		}
@@ -49,14 +56,25 @@ public class LoginController {
 		return "errore";
 	}
 	
-	        
-	// metodo che serve per poter usare una lista nella ftl home
-	public void inserisciPost(Model model) {
-		List<Utente> utenti = utenteService.selezionaUtenti();
-		model.addAttribute("utenti",utenti);
+	      
+	public void showAllPost(HttpSession session, String username) {
+		List<Post> listaPost = postService.selezionaTuttiPost();
+		if (listaPost == null) {
+			listaPost = new ArrayList<>(); // Inizializza con una lista vuota
+		}
+
+		Utente utente = utenteService.selezionaUtenteByUsername(username);
+        
+		session.setAttribute("listaPost", listaPost);
+//	String Path = postService.selezionaPostById(null);
+//		session.setAttribute("filePath", Path);
+//		session.setAttribute("post", post); // agginto al model il singolo post per far comparire il nome del creatore su post.ftl
+		session.setAttribute("utente", utente); // aggiunto al model l'utente per far comparire il nome dell'utente loggato su navbar.ftl
+
+		for(Post p: listaPost) {
+			System.out.println(p.getImg());
+		}
 	}
-	
-	
 	
 
 }

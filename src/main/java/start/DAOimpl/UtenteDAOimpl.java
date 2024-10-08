@@ -89,21 +89,56 @@ public class UtenteDAOimpl implements UtenteDAO {
 		List<Utente> utenti = repository.findAll();
 
 		for (Utente u : utenti) {
-			if (u.getUsername().equals(username) || u.getEmail().equals(email)) {
+			if (u.getUsername().equals(username) && u.getEmail().equals(email)) {
 				presente = true;
 			}
 		}
 		return presente;
 	}
-@Override
+
+	@Override
+	public boolean controlloPresenzaUser(String username) {
+		boolean presente = false;
+		List<Utente> utenti = repository.findAll();
+
+		for (Utente u : utenti) {
+			if (u.getUsername().equals(username)) {
+				presente = true;
+			}
+		}
+		return presente;
+	}
+
+	@Override
+	public boolean controlloPresenzaEmail(String email) {
+		boolean presente = false;
+		List<Utente> utenti = repository.findAll();
+
+		for (Utente u : utenti) {
+			if (u.getEmail().equals(email)) {
+				presente = true;
+			}
+		}
+		return presente;
+	}
+
+	@Override
 	public boolean controlloData(LocalDate data) {
 		boolean invalidDate;
 		LocalDate dataOggi = LocalDate.now();
 		if (data.isAfter(dataOggi)) {
 			invalidDate = true;
-		}else {
-			invalidDate=false;
+		} else {
+			invalidDate = false;
 		}
 		return invalidDate;
 	}
+
+	@Override
+	public Utente selezionaUtenteByUsername(String username) {
+		Utente u = repository.findByUsername(username);
+		return u;
+
+	}
+
 }

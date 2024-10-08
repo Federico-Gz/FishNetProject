@@ -20,7 +20,17 @@
 
 </head>
 <body>
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+
+	<!-- Se le credenziali sono errate compare il messaggio di errore che viene passato dal model "credenzialiErrate" -->
+	<!-- #if ****?? controlla se  credenzialiErrate esiste e non è null-->
+	
+	<#if credenzialiErrate??>
+	    <div class="alert alert-danger"> 
+	        ${credenzialiErrate}
+	    </div>
+	</#if>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
         <img class="text-logo" src="/img/FishNet..png" alt="Logo"  >
         
         <form class="mx-auto p-5 w-25 rounded-5" action="/login" method="post"> 
