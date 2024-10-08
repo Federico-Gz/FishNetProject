@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Profilo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/profilo.css">
+    <link rel="stylesheet" href="/css/evento.css">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -62,41 +62,6 @@
         <#include "/components/navbar.ftl" />
         <div class="container d-flex flex-column wid">
         
-        
-        	<div class="container p-2 mt-4 shadow-lg">
-    			<div class="card">
-        			<div class="row no-gutters">
-            			<div class="col-md-4">
-                    		<img src="${utente.img}" class="card-img" alt="Profilo Utente">
-               	 		</div>
-                		<div class="col-md-8">
-                    		<div class="card-body">
-                        		<h5 class="card-title">
-                            		<ion-icon name="person-outline"></ion-icon> ${utente.nome} ${utente.cognome}
-                        		</h5>
-                        		<p class="card-text">
-                            		<ion-icon name="calendar-number-outline"></ion-icon>
-                            		<strong>Data di Nascita:</strong> ${utente.data?string("dd/MM/yyyy")}
-                        		</p>
-                        		<p class="card-text">
-                            		<ion-icon name="mail-outline"></ion-icon>
-                            		<strong>Email:</strong> ${utente.email}
-                        		</p>
-                        		<p class="card-text">
-                            		<ion-icon name="pricetag-outline"></ion-icon>
-                            		<strong>Post Creati:</strong> ${utente.postCreati?size} 
-		                        </p>
-		                        <p class="card-text">
-		                            <ion-icon name="earth-outline"></ion-icon>
-		                            <strong>Eventi Creati:</strong> ${utente.eventiCreati?size} 
-		                        </p>
-                    		</div>
-                		</div>
-        			</div>
-    			</div>
-			</div>
-
-        	
         
                <!--serve per ciclare sulla lista di post, crea tante pagine post.ftl quanti sono i post nella lista -->
            <#if listaPost??> <!-- Verifica se listaPost esiste -->             
