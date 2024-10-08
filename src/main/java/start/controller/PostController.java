@@ -75,6 +75,7 @@ public class PostController {
                 listaPost.add(post);
                 session.setAttribute("listaPost", listaPost);
                 System.out.println("File salvato in: " + fileName);
+                
             }
 
         } catch (IOException e) {

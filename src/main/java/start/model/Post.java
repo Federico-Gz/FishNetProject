@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,11 +29,16 @@ public class Post {
 	@ManyToOne
     @JoinColumn(name = "id_luogo", nullable = false)
     private Luogo luogo;
-	@Column(name = "mi_piace")
-	private int mi_piace;
-	@Column(name = "dislike")
-	private int dislike;
+//	@Column(name = "mi_piace")
+//	private int mi_piace;
+//	@Column(name = "dislike")
+//	private int dislike;
 
+//	@OneToMany(mappedBy = "mi_piace")
+//	Set<Mi_piace> lista
+	
+	
+	
 	public Post(Utente utente, String contenuto, String img,Luogo luogo) {
 		super();
 		this.setUtente(utente);
@@ -40,8 +46,8 @@ public class Post {
 		this.setDescrizione(contenuto);
 		this.setImg(img);
 		this.setLuogo(luogo);
-		this.setLike(0);
-		this.setDislike(0);
+//		this.setLike(0);
+//		this.setDislike(0);
 	}
 
 	public Post(Utente utente, String img) {
@@ -50,8 +56,8 @@ public class Post {
 		this.setDataOra(LocalDateTime.now());
 		this.setDescrizione("");
 		this.setImg(img);
-		this.setLike(0);
-		this.setDislike(0);
+//		this.setLike(0);
+//		this.setDislike(0);
 	}
 
 	public Post(String contenuto, Utente utente) {
@@ -60,8 +66,8 @@ public class Post {
 		this.setDataOra(LocalDateTime.now());
 		this.setDescrizione("");
 		this.setImg(img);
-		this.setLike(0);
-		this.setDislike(0);
+//		this.setLike(0);
+//		this.setDislike(0);
 	}
 
 	public Post() {
@@ -100,21 +106,21 @@ public class Post {
 		this.dataOra = dataOra;
 	}
 
-	public int getLike() {
-		return mi_piace;
-	}
-
-	public void setLike(int like) {
-		this.mi_piace = like;
-	}
-
-	public int getDislike() {
-		return dislike;
-	}
-
-	public void setDislike(int dislike) {
-		this.dislike = dislike;
-	}
+//	public int getLike() {
+//		return mi_piace;
+//	}
+//
+//	public void setLike(int like) {
+//		this.mi_piace = like;
+//	}
+//
+//	public int getDislike() {
+//		return dislike;
+//	}
+//
+//	public void setDislike(int dislike) {
+//		this.dislike = dislike;
+//	}
 
 	public int getIdPost() {
 		return idPost;

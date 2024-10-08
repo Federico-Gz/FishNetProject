@@ -46,8 +46,8 @@ public class PostDAOimpl implements PostDAO {
 			postDaAggiornare.setDescrizione(p.getDescrizione());
 			postDaAggiornare.setDataOra(p.getDataOra());
 			postDaAggiornare.setImg(p.getImg());
-			postDaAggiornare.setLike(p.getLike());
-			postDaAggiornare.setDislike(p.getDislike());
+//			postDaAggiornare.setLike(p.getLike());
+//			postDaAggiornare.setDislike(p.getDislike());
 		}
 		else {
 			System.out.println("Post non presente nel Db");
