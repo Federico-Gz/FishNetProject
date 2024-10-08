@@ -48,7 +48,7 @@
         
         
 
-        <div class="container d-flex mt-5" >
+        <div class="container d-flex mt-2" >
             <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-center">
                 <ul>
                     <li>
@@ -128,7 +128,7 @@
             
         </div>
 
-        <div class="container d-flex mt-5 justify-content-center" >
+        <div class="container d-flex mt-2 justify-content-center" >
             <div class="card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center">
                 <button type="submit" class="btn btn-outline-info ">Pubblica</button>
             </div>

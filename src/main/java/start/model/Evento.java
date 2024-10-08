@@ -1,6 +1,7 @@
 package start.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,113 +27,140 @@ public class Evento {
 	@ManyToOne
 	@JoinColumn(name = "id_utente", nullable = false)
 	private Utente utente;
-	@Column(name = "data_evento", nullable = false)
-	private LocalDate dataEvento;
 	@Column(name = "data_creazione", nullable = false)
-	private LocalDate dataCreazione;
+	private LocalDateTime dataCreazione;
 	@Column(name = "descrizione", nullable = false)
 	private String descrizione;
 	@Column(name = "numero_max", nullable = false)
 	private int numeroMax;
 	@Column(name = "numero_iscritti")
 	private int numeroIscritti;
-	@Column(name = "immagine")
-	private String immagine;
-	@ManyToMany(mappedBy = "eventiPartecipati")
+	@ManyToMany
+	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name="id_evento"),
+	inverseJoinColumns = @JoinColumn(name="id_utente"))
 	List<Utente> partecipanti;
-
-	public Evento(Utente utente, LocalDate data_evento, LocalDate data_creazione, String descrizione, int numero_max) {
+	@ManyToOne
+	@JoinColumn(name = "id_luogo", nullable = false)
+	private Luogo luogo;
+	@Column(name ="numero_canne", nullable = false)
+	private int numeroCanne;
+	@Column(name ="specialita_canne",nullable = false)
+	private String specialitaCanne;
+	@Column(name ="gommone", nullable = false)
+	private String gommone;
+	@Column(name ="tipologia_esca",nullable = false)
+	private String tipologiaesca;
+	@Column(name ="data_inizio", nullable = false)
+	private LocalDate dataInizio;
+	@Column(name ="data_fine", nullable = false)
+	private LocalDate dataFine;
+	
+	
+	
+	public Evento(Utente utente, String descrizione,int numeroMax,int numeroCanne,
+			String specialitaCanne, String gommone, String tipologiaesca, LocalDate dataInizio,
+			LocalDate dataFine) {
 		super();
-		this.utente = utente;
-		this.dataEvento = data_evento;
-		this.dataCreazione = data_creazione;
+		this.utente = utente;		
+		this.dataCreazione = LocalDateTime.now();
 		this.descrizione = descrizione;
-		this.numeroMax = numero_max;
+		this.numeroMax = numeroMax;
 		this.partecipanti = new ArrayList<>();
-	}
-
-	public Evento(Utente utente, LocalDate data_evento, LocalDate data_creazione, String descrizione, int numero_max,
-			String immagine) {
-		super();
-		this.utente = utente;
-		this.dataEvento = data_evento;
-		this.dataCreazione = data_creazione;
-		this.descrizione = descrizione;
-		this.numeroMax = numero_max;
-		this.immagine = immagine;
-		this.partecipanti = new ArrayList<>();
-	}
-
-	public Evento() {
-
+		this.numeroIscritti = 0;		
+		this.luogo = new Luogo ("Savona", 44.2975603, 8.4645);
+		this.numeroCanne = numeroCanne;
+		this.specialitaCanne = specialitaCanne;
+		this.gommone = gommone;
+		this.tipologiaesca = tipologiaesca;
+		this.dataInizio = dataInizio;
+		this.dataFine = dataFine;
 	}
 
 	public int getId_evento() {
 		return id_evento;
 	}
-
+	
 	public Utente getUtente() {
 		return utente;
 	}
-
 	public void setUtente(Utente utente) {
 		this.utente = utente;
 	}
-
-	public LocalDate getData_evento() {
-		return dataEvento;
-	}
-
-	public void setData_evento(LocalDate data_evento) {
-		this.dataEvento = data_evento;
-	}
-
-	public LocalDate getData_creazione() {
+	public LocalDateTime getDataCreazione() {
 		return dataCreazione;
 	}
-
-	public void setData_creazione(LocalDate data_creazione) {
-		this.dataCreazione = data_creazione;
+	public void setDataCreazione(LocalDateTime dataCreazione) {
+		this.dataCreazione = dataCreazione;
 	}
-
 	public String getDescrizione() {
 		return descrizione;
 	}
-
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public int getNumero_max() {
+	public int getNumeroMax() {
 		return numeroMax;
 	}
-
-	public void setNumero_max(int numero_max) {
-		this.numeroMax = numero_max;
+	public void setNumeroMax(int numeroMax) {
+		this.numeroMax = numeroMax;
 	}
-
-	public int getNumero_iscritti() {
+	public int getNumeroIscritti() {
+		if(partecipanti.isEmpty()) {		
+			return numeroIscritti = 0;
+		}
+		this.numeroIscritti=partecipanti.size();
 		return numeroIscritti;
 	}
-
-	public void setNumero_iscritti(int numero_iscritti) {
-		this.numeroIscritti = numero_iscritti;
+	public void setNumeroIscritti(int numeroIscritti) {
+		this.numeroIscritti = numeroIscritti;
 	}
-
-	public String getImmagine() {
-		return immagine;
-	}
-
-	public void setImmagine(String immagine) {
-		this.immagine = immagine;
-	}
-
 	public List<Utente> getPartecipanti() {
 		return partecipanti;
 	}
-
 	public void setPartecipanti(List<Utente> partecipanti) {
 		this.partecipanti = partecipanti;
 	}
-
+	public Luogo getLuogo() {
+		return luogo;
+	}
+	public void setLuogo(Luogo luogo) {
+		this.luogo = luogo;
+	}
+	public int getNumeroCanne() {
+		return numeroCanne;
+	}
+	public void setNumeroCanne(int numeroCanne) {
+		this.numeroCanne = numeroCanne;
+	}
+	public String getSpecialitaCanne() {
+		return specialitaCanne;
+	}
+	public void setSpecialitaCanne(String specialitaCanne) {
+		this.specialitaCanne = specialitaCanne;
+	}
+	public String getGommone() {
+		return gommone;
+	}
+	public void setGommone(String gommone) {
+		this.gommone = gommone;
+	}
+	public String getTipologiaesca() {
+		return tipologiaesca;
+	}
+	public void setTipologiaesca(String tipologiaesca) {
+		this.tipologiaesca = tipologiaesca;
+	}
+	public LocalDate getDataInizio() {
+		return dataInizio;
+	}
+	public void setDataInizio(LocalDate dataInizio) {
+		this.dataInizio = dataInizio;
+	}
+	public LocalDate getDataFine() {
+		return dataFine;
+	}
+	public void setDataFine(LocalDate dataFine) {
+		this.dataFine = dataFine;
+	}
+	
 }
