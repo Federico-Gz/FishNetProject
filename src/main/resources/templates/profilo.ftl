@@ -71,19 +71,19 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <ion-icon name="person-outline"></ion-icon> 
+                                    <ion-icon class="mr-2" name="person-outline"></ion-icon>${utente.getNome()} ${utente.getCognome()} 
                                 </h5>
                                 <p class="card-text">
                                     <ion-icon name="calendar-number-outline"></ion-icon>
-                                    <strong>Data di Nascita:</strong> 
+                                    <strong>Data di Nascita: ${utente.getData()}</strong> 
                                 </p>
                                 <p class="card-text">
                                     <ion-icon name="mail-outline"></ion-icon>
-                                    <strong>Email:</strong> 
+                                    <strong>Email: ${utente.getEmail()}</strong> 
                                 </p>
                                 <p class="card-text">
                                     <ion-icon name="pricetag-outline"></ion-icon>
-                                    <strong>Post Creati:</strong>
+                                    <strong>Post Creati: ${utente.numeroPostCreati()}</strong>
                                 </p>
                                 <p class="card-text">
                                     <ion-icon name="earth-outline"></ion-icon>
@@ -96,18 +96,15 @@
             </div>
         
                <!--serve per ciclare sulla lista di post, crea tante pagine post.ftl quanti sono i post nella lista -->
-           <#if listaPost??> <!-- Verifica se listaPost esiste -->             
-                  <#list listaPost as post>
+           <#if listaPostUtente??> <!-- Verifica se listaPost esiste -->             
+                  <#list listaPostUtente as post>
+                     
                      <#include "/components/post.ftl"/>
                   </#list>              
             <#else>
                  <p>Nessun post disponibile</p> <!-- Messaggio se listaPost è null -->
             </#if>
-       
-       
-       
-       
-       
+           
        
         </div>
     </div>

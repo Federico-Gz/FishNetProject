@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpSession;
 import start.DAO.UtenteDAO;
 import start.model.Utente;
 
@@ -28,32 +29,33 @@ public class RegisterController {
 	}
 
 	@PostMapping("/registrazioneOk") // metodo per inserire un nuovo utente
-	public String inserisciUtente(@ModelAttribute Utente utente,@RequestParam String action,Model model) {
-		if(action.equals("registrati")) {
-			// Viene controllato che username, password non siano già presenti nel db e che la data di nascita non sia errata
-			if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
-				model.addAttribute("userEmailInUso", "Risulta già un utente registrato con questo indirizzo email ed username");
-				return "registrazione";
-			}else if(utenteService.controlloPresenzaUser(utente.getUsername())){
-				model.addAttribute("userInUso", "Risulta già un utente registrato con questo username");
-				return "registrazione";
-			}else if(utenteService.controlloPresenzaEmail(utente.getEmail())){
-				model.addAttribute("emailInUso", "Risulta già un utente registrato con questo indirizzo email");
-				return "registrazione";
-			}
-			else {
-				if(!utenteService.controlloData(utente.getData())) {
-					utenteService.inserisciUtente(utente);
-					return "login";
-				}
-				else {
-					model.addAttribute("dataErrata", "La data di nascita è errata");
-					return "registrazione";
-				}
-			}
-		}
-		return "errore";
-	}
+    public String inserisciUtente(@ModelAttribute Utente utente,@RequestParam String action,Model model,HttpSession session) {
+        if(action.equals("registrati")) {
+            // Viene controllato che username, password non siano già presenti nel db e che la data di nascita non sia errata
+            if (utenteService.controlloPresenzaUserPw(utente.getUsername(), utente.getEmail())) {
+                model.addAttribute("userEmailInUso", "Risulta già un utente registrato con questo indirizzo email ed username");
+                return "registrazione";
+            }else if(utenteService.controlloPresenzaUser(utente.getUsername())){
+                model.addAttribute("userInUso", "Risulta già un utente registrato con questo username");
+                return "registrazione";
+            }else if(utenteService.controlloPresenzaEmail(utente.getEmail())){
+                model.addAttribute("emailInUso", "Risulta già un utente registrato con questo indirizzo email");
+                return "registrazione";
+            }
+            else {
+                if(!utenteService.controlloData(utente.getData())) {
+                    utenteService.inserisciUtente(utente);
+                    session.setAttribute("credenzialiErrate", null);
+                    return "login";
+                }
+                else {
+                    model.addAttribute("dataErrata", "La data di nascita è errata");
+                    return "registrazione";
+                }
+            }
+        }
+        return "errore";
+    }
 
 //	@GetMapping("/rimuovi")
 //	public String rimuoviUtente() {

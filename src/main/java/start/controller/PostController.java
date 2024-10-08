@@ -80,6 +80,7 @@ public class PostController {
 				postService.inserisciPost(post);
 				
 				utente.getPostCreati().add(post);
+				//session.setAttribute("listaPostUtente", utente.getPostCreati());
 				System.out.println("Numero post: "+utente.getPostCreati().size()+"utente : " +utente.getUsername());	
 
 				session.setAttribute("post", post);

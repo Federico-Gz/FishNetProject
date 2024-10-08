@@ -181,5 +181,9 @@ public void setUsername(String username) {
         this.dislikes = dislikes;
     }
 
+    public int numeroPostCreati() {
+    	return this.getPostCreati().size();
+    	
+    }
 
 }
