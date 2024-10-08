@@ -12,41 +12,37 @@ import jakarta.persistence.Table;
 @Table(name = "dislike")
 public class Dislike {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_mi_piace;
-	@ManyToOne
-	@JoinColumn(name="id_utente",nullable=false)
-	private Utente utente;
-	@ManyToOne
-	@JoinColumn(name="id_post",nullable=false)
-	private Post post;
-	
-	public Dislike() {}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_mi_piace;
+    @ManyToOne
+    @JoinColumn(name="id_utente",nullable=false)
+    private Utente utente;
+    @ManyToOne
+    @JoinColumn(name="id_post",nullable=false)
+    private Post post;
 
-	public int getId_mi_piace() {
-		return id_mi_piace;
-	}
+    public Dislike() {}
 
-	public void setId_mi_piace(int id_mi_piace) {
-		this.id_mi_piace = id_mi_piace;
-	}
+    public int getId_mi_piace() {
+        return id_mi_piace;
+    }
 
-	public Utente getUtente() {
-		return utente;
-	}
+    public Utente getUtente() {
+        return utente;
+    }
 
-	public void setUtente(Utente utente) {
-		this.utente = utente;
-	}
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
 
-	public Post getPost() {
-		return post;
-	}
+    public Post getPost() {
+        return post;
+    }
 
-	public void setPost(Post post) {
-		this.post = post;
-	};
-	
-	
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+
 }

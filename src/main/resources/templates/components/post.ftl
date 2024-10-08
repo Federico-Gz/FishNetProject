@@ -5,12 +5,21 @@
                 <img src="/img/logo.png" alt="Logo" class="d-flex align-self-center img-profilo" />
                 <div class="d-flex flex-column align-self-center mt-3">
                     <h6 class="align-self-center">${post.getUtente().getUsername()}</h6>
-                    <p class="align-self-center">${post.getLuogo().getNome_luogo()}</p>
+                    <p class="align-self-center">${post.getFormattedDataOra()}</p>
                 </div>
+                
             </div>
-            <a href="#" class="align-self-start p-3">
-                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-            </a>
+	            <div class="btn-group dropend">
+	                      <button type="button" class="btn bg-transparent border border-0 text-body m-3 " data-bs-toggle="dropdown" aria-expanded="false">
+	                        <a href="#" class="align-self-start p-3">
+	                            <ion-icon name="ellipsis-vertical-outline" class="" size=""></ion-icon>
+	                        </a>
+	                      </button>
+	                      <ul class="dropdown-menu">
+	                        <li><a class="dropdown-item" href="#">Modifica</a></li>
+	                        <li><a class="dropdown-item" href="#">Rimuovi</a></li>
+	                      </ul>
+	                </div>
         </div>
     </div>
 
@@ -29,14 +38,20 @@
             to additional content. This content is a little bit longer.-->
         </p>
         <div class="container d-flex justify-content-center align-items-center">
-            <p class="like-counter m-0" id="like-counter-1">0</p>
-            <a class="navbar-brand button" id="like-button-1" href="/coutLike" data-post-id="1" style="padding: 1px;">
-                <img src="../img/like.png" width="60" height="50">
-            </a>
-            <a class="navbar-brand button" id="dislike-button-1" href="#" data-post-id="1" style="padding: 1px;">
-                <img src="../img/notLike.png" width="60" height="50">
-            </a>
-            <p class="like-counter m-0" id="dislike-counter-1">0</p>
+			 <form action="addInteraction" method="post" class="d-flex justify-content-center align-items-center" >
+	            <p class="like-counter m-0">0</p>
+	            <input type="hidden" name="id_post" value="${post.getIdPost()}">
+	            <button type="submit" name="action" value="like" class="navbar-brand button" id="like-button-${post.getIdPost()}" style="padding: 1px;">
+	                <img src="../img/like.png" width="60" height="50">
+	            </button>
+	
+	
+	            <button type="submit" name="action" value="dislike" class="navbar-brand button" id="dislike-button-1" data-post-id="1" style="padding: 1px;">
+	                <img src="../img/notLike.png" width="60" height="50">
+	            </button>
+	
+	            <p class="like-counter m-0" id="dislike-counter-1">0</p>
+           	</form>
         </div>
     </div>
 </div>

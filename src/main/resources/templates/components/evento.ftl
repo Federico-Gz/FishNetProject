@@ -11,15 +11,15 @@
                 </div>
                 
                  <div class="btn-group dropend">
-  					<button type="button" class="btn btn-secondary bg-transparent text-body m-3 " data-bs-toggle="dropdown" aria-expanded="false">
-    					<a href="#" class="align-self-start p-3">
-                    		<ion-icon name="ellipsis-vertical-outline" class="" size=""></ion-icon>
-                		</a>
-  					</button>
-  					<ul class="dropdown-menu">
-    					<li><a class="dropdown-item" href="#">Modifica</a></li>
-    					<li><a class="dropdown-item" href="#">Rimuovi</a></li>
-  					</ul>
+  					<button type="button" class="btn bg-transparent border border-0 text-body m-3 " data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#" class="align-self-start p-3">
+                            <ion-icon name="ellipsis-vertical-outline" class="" size=""></ion-icon>
+                        </a>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Modifica</a></li>
+                        <li><a class="dropdown-item" href="#">Rimuovi</a></li>
+                      </ul>
 				</div>
             </div>
         </div>

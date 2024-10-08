@@ -1,5 +1,6 @@
 package start.controller;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,11 +65,8 @@ public class LoginController {
 		}
 
 		Utente utente = utenteService.selezionaUtenteByUsername(username);
-        
+		
 		session.setAttribute("listaPost", listaPost);
-//	String Path = postService.selezionaPostById(null);
-//		session.setAttribute("filePath", Path);
-//		session.setAttribute("post", post); // agginto al model il singolo post per far comparire il nome del creatore su post.ftl
 		session.setAttribute("utente", utente); // aggiunto al model l'utente per far comparire il nome dell'utente loggato su navbar.ftl
 
 		for(Post p: listaPost) {

@@ -25,35 +25,37 @@
         <!-- DIV FORM PER AGGIUNGERE UN POST -->
 
         <div class="card d-flex container w-50 creaPost p-0" data-post-id="1" >
-            <form class="container bg-body-tertiary">
+        
+        
+            <form class="container bg-body-tertiary" action="/posts/save" method="post" enctype="multipart/form-data">
                 <div class="container-fluid d-flex justify-content-between align-items-start" style="display: inherit;">
                     <div class="d-flex w-50" style="display: inherit;">
                         <img src="/img/logo.png" alt="Logo" class="d-flex align-self-center img-profilo"/>
                              
                         <div class="d-flex flex-column align-self-center mt-3">
-                            <h6 class="align-self-center">Nome profilo</h6>
-                            <p class="align-self-center">Luogo</p>
+                            <h6 class="align-self-center">${utente.getUsername()}</h6>
+                          <!--  <p class="align-self-center">Luogo</p> -->
                         </div>
                     </div>
-                    
                         <ion-icon id="x" name="close-circle-outline" class="align-self-start p-0 fs-2"></ion-icon>
-                    
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <input type="file" accept="image/*" class="card-img-top w-100 p-3" placeholder="/img/logo.png" />
+                    <input type="file" name="image" accept="image/png, image/jpeg" class="card-img-top w-100 p-3" placeholder="/img/logo.png" />
                 </div>
 
                 <div class="card-body" >
                     <div class="form-floating mb-4">
-  						<textarea class="form-control" style="height:100px; max-height: 250px;" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
- 						<label for="floatingTextarea">Scrivi qui</label>
+  						<textarea name="descrizione" class="form-control" style="height:100px; max-height: 250px;" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+ 						<label for="descrizione">Scrivi qui</label>
 					</div>
                     <div class="container d-flex justify-content-center align-items-center" >
-                        <button type="button" class="btn btn-outline-info">Pubblica</button>
+                        <button type="submit" class="btn btn-outline-info">Pubblica</button>
                     </div>
                 </div>
             </form>
+            
+            
         </div>
     </div>
 

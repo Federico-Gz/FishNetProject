@@ -86,9 +86,38 @@ public class PostController {
         return "home";  // Redirigi a una pagina di successo
     }
     
-    @GetMapping("/countLike")
-    public String countLike(Model model) {
-    	
-    		return"home";
+    @PostMapping("/addInteraction")
+    public String addLike(@RequestParam String action,@RequestParam int id_post ,HttpSession session) {
+
+
+        if (action.equals("like")) {
+            System.out.println("like ins");
+//            Utente u = (Utente) session.getAttribute("utente");
+//            List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
+//            for (Post p : listaPost) {
+//                if(p.getIdPost()==id_post && p.getUtente().getUsername().equals(u.getUsername())) {
+//                    Mi_piace l = new Mi_piace(u,p);
+//                    likeService.inserisciMi_piace(l);
+//                }
+//            }
+//            Post p = (Post) session.getAttribute("post");
+//            List<Mi_piace> likes = likeService.selezionaTuttiMi_piace();
+//            for (Mi_piace m : likes) {
+//                if (!m.getUtente().getUsername().equals(u.getUsername()) && m.getPost().getIdPost() == p.getIdPost()) {
+//                    Mi_piace l = new Mi_piace(u, p);
+//                    likes.add(l);
+//                    likeService.inserisciMi_piace(l);
+//                }
+//            }
+
+        } else if (action.equals("dislike")) {
+
+            // azione per dislike
+        }
+
+        return "home";
+
     }
+
+    
 }
