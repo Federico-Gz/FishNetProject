@@ -51,7 +51,7 @@ public class PostController {
                 String fileName = file.getOriginalFilename();
                 // Costruisci il percorso completo del file
                 String filePath = uploadDirectory + fileName;
-                session.setAttribute("filePath",filePath);
+                //session.setAttribute("filePath",filePath); //modifica fatta per inserire img nel progetto 
 
                 // Salva il file nella cartella esterna
                 Path path = Paths.get(filePath);
@@ -61,8 +61,8 @@ public class PostController {
                 Utente utente = (Utente) session.getAttribute("utente");
                 Luogo l = new Luogo("Savona",44.2975603,8.4645);
                 luogoService.inserisciLuogo(l);
-                Post post = new Post(utente,descrizione, filePath,l);
-               
+                //Post post = new Post(utente,descrizione, filePath,l); //modifica fatta per inserire img nel progetto
+                Post post = new Post(utente,descrizione,fileName,l);//prima si utilizzava post riga 64
                 postService.inserisciPost(post);
 //                List<Post> listaPost = postService.selezionaTuttiPost();
 //        		if (listaPost == null) {
@@ -74,7 +74,7 @@ public class PostController {
                 List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
                 listaPost.add(post);
                 session.setAttribute("listaPost", listaPost);
-                System.out.println("File salvato in: " + filePath);
+                System.out.println("File salvato in: " + fileName);
             }
 
         } catch (IOException e) {
@@ -83,5 +83,11 @@ public class PostController {
         }
 
         return "home";  // Redirigi a una pagina di successo
+    }
+    
+    @GetMapping("/countLike")
+    public String countLike(Model model) {
+    	
+    		return"home";
     }
 }

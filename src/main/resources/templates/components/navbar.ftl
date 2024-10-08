@@ -5,7 +5,7 @@
                     class="d-inline-block align-text-top">
                 <h4 class="d-flex align-self-center w-25 p-3">
                 
-                <!--recupera il nom dell'utente loggato-->
+                <!--recupera il nome dell'utente loggato-->
                 ${utente.getUsername()}
                        
                 </h4>

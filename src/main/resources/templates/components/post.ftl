@@ -5,7 +5,7 @@
                 <img src="/img/logo.png" alt="Logo" class="d-flex align-self-center img-profilo" />
                 <div class="d-flex flex-column align-self-center mt-3">
                     <h6 class="align-self-center">${post.getUtente().getUsername()}</h6>
-                    <p class="align-self-center">Luogo</p>
+                    <p class="align-self-center">${post.getLuogo().getNome_luogo()}</p>
                 </div>
             </div>
             <a href="#" class="align-self-start p-3">
@@ -15,12 +15,12 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <img src="C:/Users/Administrator/Desktop/Uploads/Stile di lavoro.PNG" class="card-img-top w-100 p-3"/>
+        <img src="../uploads/post/${post.getImg()}" class="card-img-top w-100 p-3"/>
     </div>
 
     <div class="card-body">
         <p class="card-text">
-           <!-- recupera la descrizione di ogni post presente il listaPost -->
+           <!-- recupera la descrizione di ogni post presente in listaPost -->
             
                       ${post.getDescrizione()}
             
@@ -30,7 +30,7 @@
         </p>
         <div class="container d-flex justify-content-center align-items-center">
             <p class="like-counter m-0" id="like-counter-1">0</p>
-            <a class="navbar-brand button" id="like-button-1" href="#" data-post-id="1" style="padding: 1px;">
+            <a class="navbar-brand button" id="like-button-1" href="/coutLike" data-post-id="1" style="padding: 1px;">
                 <img src="../img/like.png" width="60" height="50">
             </a>
             <a class="navbar-brand button" id="dislike-button-1" href="#" data-post-id="1" style="padding: 1px;">
