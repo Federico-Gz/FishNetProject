@@ -16,10 +16,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
- 	<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 </head>
 
@@ -98,12 +95,7 @@
                 </ul>
            
             </div>
-            <div class="card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center" >
-                <input type="file" accept="image/*" class="card-img-top w-50 p-3" placeholder="/img/logo.png" />
-            </div>
-        </div>
-
-        <div class="container d-flex mt-5" >
+            
             <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-center">
                 <ul class="w-50 ps-2 pr-2">
                     <li>
@@ -133,6 +125,10 @@
                 </ul>
                 
             </div>
+            
+        </div>
+
+        <div class="container d-flex mt-5 justify-content-center" >
             <div class="card-text p-2 shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center">
                 <button type="submit" class="btn btn-outline-info ">Pubblica</button>
             </div>
@@ -140,7 +136,7 @@
 	</form>
     </div>
     
-</div>
+	</div>
 	
     <div class=" d-flex w-100 flex-column justify-content-center align-items-center" id="main-container">
            <#include "/components/navbar.ftl"/>
