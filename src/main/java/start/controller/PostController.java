@@ -100,28 +100,30 @@ public class PostController {
 	@PostMapping("/addInteraction")
     public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session, Model model) {
         Post po = postService.selezionaPostById(id_post);
+      Utente u = (Utente) session.getAttribute("utente");
 
         List<Post> posts = postService.selezionaTuttiPost();
 
         if (action.equals("like")) {  //** mi piace
             boolean inserito = false;
 
-            for (Post x : posts) {
-                System.out.println("Post: " + x.getDescrizione() + "num like: " + x.getNumLikes());
-            }
+//            for (Post x : posts) {
+//                System.out.println("Post: " + x.getDescrizione() + "num like: " + x.getNumLikes());
+//            }
 
             for (Mi_piace y : po.getLikes()) {
-                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+                if (u.getUsername().equals(y.getUtente().getUsername())) {
                     inserito = true;
+                    System.out.println("già inserito");
                 }
             }
             for (Dislike y : po.getDislikes()) {
-                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+            	if (u.getUsername().equals(y.getUtente().getUsername())) {
                     inserito = true;
+                    System.out.println("già inserito");
                 }
             }
             if (inserito == false) {
-                Utente u = (Utente) session.getAttribute("utente");
                 Post p = postService.selezionaPostById(id_post);
 
                 Mi_piace l = new Mi_piace(u, p);
@@ -139,18 +141,17 @@ else if (action.equals("dislike")) {    //* non mi piace
 //            }
 
             for (Mi_piace y : po.getLikes()) {
-                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+            	if (u.getUsername().equals(y.getUtente().getUsername())) {
                     inserito = true;
                 }
             }
             for (Dislike y : po.getDislikes()) {
-                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+            	if (u.getUsername().equals(y.getUtente().getUsername())) {
                     inserito = true;
                 }
             }
 
             if (inserito == false) {
-                Utente u = (Utente) session.getAttribute("utente");
                 Post p = postService.selezionaPostById(id_post);
                 Dislike d = new Dislike(u, p);
                 dislikeService.inserisciDislike(d);
@@ -160,7 +161,7 @@ else if (action.equals("dislike")) {    //* non mi piace
 
         }
 
-        return "home";
+        return "redirect:/showHome";
 
     }
 
