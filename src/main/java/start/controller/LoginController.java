@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import start.DAO.Mi_piaceDAO;
 import start.DAO.PostDAO;
 import start.DAO.UtenteDAO;
 import start.model.Post;
@@ -30,6 +31,9 @@ public class LoginController {
 	@Autowired 
 	private PostDAO postService;
 
+	@Autowired
+	private Mi_piaceDAO likeService;
+	
 	@GetMapping
 	public String showLoginPage() {
 		return "login"; // Il nome del file FTL senza estensione
@@ -71,6 +75,9 @@ public class LoginController {
 
 		Utente u = (Utente) session.getAttribute("utente");
 		session.setAttribute("listaPostUtente", u.getPostCreati());
+		
+		int likeInseriti = (int) likeService.contaMi_piace();
+		session.setAttribute("likeInseriti", likeInseriti);
 //		for(Post p: listaPost) {
 //			System.out.println(p.getImg());
 //		}

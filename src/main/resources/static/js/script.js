@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");  // Verifica che il DOM sia pronto
 
-    const likeButtons = document.querySelectorAll('[id^="like-button"]');
+  /*  const likeButtons = document.querySelectorAll('[id^="like-button"]');
 
     // Aggiungi un listener ad ogni pulsante like
     likeButtons.forEach(button => {
@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
             likeCounter.classList.add("animate__animated", "animate__fadeInDown");
 
             likeCounter.addEventListener("animationend", function() {
-                likeCounter.classList.remove("animate__animated", "animate__fadeInDown");
+               likeCounter.classList.remove("animate__animated", "animate__fadeInDown");
             }, { once: true });
-        });
-    }); 
+       });
+    }); */
 	
 	//Aggiunto tasto indietro che dalla pagina registrazione.ftl torna indietro
 	 document.getElementById('indietro').addEventListener('click', function() {

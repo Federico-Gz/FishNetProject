@@ -18,4 +18,6 @@ public interface Mi_piaceDAO {
     List<Mi_piace> selezionaTuttiMi_piace();
 
     long contaMi_piace();
+    
+    
 }

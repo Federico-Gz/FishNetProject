@@ -26,7 +26,6 @@ public class Mi_piace {
     public Mi_piace(Utente utente,Post post) {
         this.setUtente(utente);
         this.setPost(post);
-
     }
 
     public Mi_piace() {}
@@ -35,9 +34,9 @@ public class Mi_piace {
         return id_mi_piace;
     }
 
-    public void setId_mi_piace(int id_mi_piace) {
-        this.id_mi_piace = id_mi_piace;
-    }
+//    public void setId_mi_piace(int id_mi_piace) {
+//        this.id_mi_piace = id_mi_piace;
+//    }
 
     public Utente getUtente() {
         return utente;

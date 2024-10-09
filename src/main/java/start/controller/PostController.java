@@ -35,10 +35,10 @@ public class PostController {
 
 	@Autowired
 	private DislikeDAO dislikeService;
-	
+
 	@Autowired
 	private Mi_piaceDAO likeService;
-	
+
 	@Autowired
 	private PostDAO postService;
 
@@ -78,10 +78,11 @@ public class PostController {
 				// inserire img nel progetto
 				Post post = new Post(utente, descrizione, fileName, l);// prima si utilizzava post riga 64
 				postService.inserisciPost(post);
-				
+
 				utente.getPostCreati().add(post);
-				//session.setAttribute("listaPostUtente", utente.getPostCreati());
-				System.out.println("Numero post: "+utente.getPostCreati().size()+"utente : " +utente.getUsername());	
+				// session.setAttribute("listaPostUtente", utente.getPostCreati());
+				System.out
+						.println("Numero post: " + utente.getPostCreati().size() + "utente : " + utente.getUsername());
 
 				session.setAttribute("post", post);
 				List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
@@ -100,15 +101,27 @@ public class PostController {
 	}
 
 	@PostMapping("/addInteraction")
-	public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session) {
-
-		System.out.println("action: " + action);
-		System.out.println("id post: " + id_post);
+	public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session, Model model) {
 
 		if (action.equals("like")) {
-			System.out.println("like ins");
-//            Utente u = (Utente) session.getAttribute("utente");
-//            List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
+			boolean inserito = false;
+			Utente u = (Utente) session.getAttribute("utente");
+			Post p = postService.selezionaPostById(id_post);
+
+			int likeInseriti = (int) likeService.contaMi_piace();
+			session.setAttribute("likeInseriti", likeInseriti);
+			
+			List<Mi_piace> listaLike = likeService.selezionaTuttiMi_piace();
+			for (Mi_piace x : listaLike) {
+				if (x.getUtente().getUsername().equals(u.getUsername()) ) {
+					inserito = true;
+				}
+			}
+			if (inserito == false) {
+				Mi_piace l = new Mi_piace(u, p);
+				likeService.inserisciMi_piace(l);
+			}
+
 //            for (Post p : listaPost) {
 //                if(p.getIdPost()==id_post && p.getUtente().getUsername().equals(u.getUsername())) {
 //                    Mi_piace l = new Mi_piace(u,p);
@@ -126,24 +139,47 @@ public class PostController {
 //            }
 
 		} else if (action.equals("dislike")) {
-
-			
+			boolean inserito = false;
 			Utente u = (Utente) session.getAttribute("utente");
-			List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
-			Post postCorretto=null;
-			for (Post p : listaPost) {
-				if (p.getIdPost() == id_post) {
-					postCorretto=p;
-					System.out.println("dislike ins");
+			Post p = postService.selezionaPostById(id_post);
+			
+			int disLikeInseriti = (int) dislikeService.contaDislike();
+			session.setAttribute("disLikeInseriti", disLikeInseriti);
+			
+			List<Dislike> listaDisLike = dislikeService.selezionaTuttiDislike();
+			
+			
+			for(Dislike x : listaDisLike) {
+				if(x.getUtente().getUsername().equals(u.getUsername())) {
+					inserito = true;
 				}
 			}
-		    Set<Dislike> dislikes = postCorretto.getDislikes();
-		    for(Dislike d: dislikes) {
-		    	if(!d.getUtente().getUsername().equals(u.getUsername())) {
-		    		Dislike dislike = new Dislike(u,postCorretto);
-		    		dislikeService.inserisciDislike(dislike);
-		    	}
-		    }
+			if(inserito == false) {
+				Dislike d = new Dislike(u, p);
+				dislikeService.inserisciDislike(d);
+			}
+			
+
+			
+			
+			
+			
+//    		Post postCorretto=null;
+//			for (Post p : listaPost) {
+//				if (p.getIdPost() == id_post) {
+//					postCorretto=p;
+//					System.out.println("dislike inserito");
+//				}
+//			}
+//		    Set<Dislike> disLikes = postCorretto.getDislikes();
+//		    for(Dislike d: disLikes) {
+//		    	if(!d.getUtente().getUsername().equals(u.getUsername())) {
+//		    		Dislike dislike = new Dislike(u,postCorretto);
+//		    		dislikeService.inserisciDislike(dislike);
+//		    		
+//		    		
+//		    	}
+//		    }
 		}
 
 		return "home";
