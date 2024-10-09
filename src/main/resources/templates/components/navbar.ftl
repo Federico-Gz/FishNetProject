@@ -23,7 +23,7 @@
                         <a class="nav-link" href="/eventi"><h5>Eventi</h5></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><h5>Mappa</h5></a>
+                        <a class="nav-link" href="/mappa"><h5>Mappa</h5></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/showLogin"><h5>Esci</h5></a>
