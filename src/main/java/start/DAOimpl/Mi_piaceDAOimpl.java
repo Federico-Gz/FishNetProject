@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import start.DAO.Mi_piaceDAO;
 import start.model.Mi_piace;
+import start.model.Post;
 import start.repository.Mi_piaceRepository;
 
 @Service
@@ -35,7 +36,7 @@ public class Mi_piaceDAOimpl implements Mi_piaceDAO{
     }
 
     @Override
-    public void cancellaPostTramiteId(Integer id) {
+    public void cancellaMi_piaceTramiteId(Integer id) {
         repository.deleteById(id);
 
     }
@@ -50,6 +51,13 @@ public class Mi_piaceDAOimpl implements Mi_piaceDAO{
     public long contaMi_piace() {
 
         return repository.count();
+    }
+
+	@Override
+	public List<Mi_piace> selezionaLikesByPost(Post p) {
+        List<Mi_piace> likes = repository.findByPost(p);
+
+        return likes;
     }
     
     

@@ -139,4 +139,12 @@ public class Post {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         return dataOra.format(formatter);
     }
+    
+    public int getNumDislikes() {
+        return this.getDislikes().size();
+    }
+    
+    public int getNumLikes() {
+        return this.getLikes().size();
+    }
 }

@@ -1,6 +1,6 @@
 package start.controller;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 
 import start.DAO.EventoDAO;
 import start.DAO.Mi_piaceDAO;
@@ -85,13 +84,7 @@ public class LoginController {
 		session.setAttribute("listaEventi", listaEventi);
 		session.setAttribute("listaPostUtente", utente.getPostCreati());
 		session.setAttribute("listaEventoUtente", utente.getEventiCreati());
-		
-		
-		int likeInseriti = (int) likeService.contaMi_piace();
-		session.setAttribute("likeInseriti", likeInseriti);
-//		for(Post p: listaPost) {
-//			System.out.println(p.getImg());
-//		}
+
 	}
 	
 

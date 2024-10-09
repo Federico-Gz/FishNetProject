@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import start.DAO.DislikeDAO;
 import start.model.Dislike;
+import start.model.Post;
 import start.repository.DislikeRepository;
 
 @Service
@@ -45,6 +46,12 @@ public class DislikeDAOimpl implements DislikeDAO {
     @Override
     public long contaDislike() {
         return repository.count();
+    }
+
+    @Override
+    public List<Dislike> selezionaDisLikesByPost(Post p) {
+        List<Dislike> disLikes = repository.findByPost(p);
+        return disLikes;
     }
 
 }

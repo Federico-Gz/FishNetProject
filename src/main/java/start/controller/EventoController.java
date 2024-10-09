@@ -45,9 +45,9 @@ public class EventoController {
 		
 		u.getEventiCreati().add(e);
 		session.setAttribute("evento", e);
-		List<Evento> listaEventiSession = (List<Evento>) session.getAttribute("listaEvento");
+		List<Evento> listaEventiSession = (List<Evento>) session.getAttribute("listaEventi");
 		listaEventiSession.add(e);
-		session.setAttribute("listaEventi", listaEventi);
+		session.setAttribute("listaEventi", listaEventiSession);
 		session.setAttribute("listaEventoUtente", u.getEventiCreati());
 		return "eventi";
 	}

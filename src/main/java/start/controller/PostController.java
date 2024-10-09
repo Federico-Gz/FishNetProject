@@ -74,15 +74,12 @@ public class PostController {
 				Utente utente = (Utente) session.getAttribute("utente");
 				Luogo l = new Luogo("Savona", 44.2975603, 8.4645);
 				luogoService.inserisciLuogo(l);
-				// Post post = new Post(utente,descrizione, filePath,l); //modifica fatta per
-				// inserire img nel progetto
+				// Post post = new Post(utente,descrizione, filePath,l); //modifica fatta per inserire img nel progetto
 				Post post = new Post(utente, descrizione, fileName, l);// prima si utilizzava post riga 64
 				postService.inserisciPost(post);
 
 				utente.getPostCreati().add(post);
 				// session.setAttribute("listaPostUtente", utente.getPostCreati());
-				System.out
-						.println("Numero post: " + utente.getPostCreati().size() + "utente : " + utente.getUsername());
 
 				session.setAttribute("post", post);
 				List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
@@ -101,93 +98,71 @@ public class PostController {
 	}
 
 	@PostMapping("/addInteraction")
-	public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session, Model model) {
+    public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session, Model model) {
+        Post po = postService.selezionaPostById(id_post);
 
-		boolean aggiuntaInterazione = false;
-		
-		if (action.equals("like")) {
-			boolean inserito = false;
-			Utente u = (Utente) session.getAttribute("utente");
-			Post p = postService.selezionaPostById(id_post);
+        List<Post> posts = postService.selezionaTuttiPost();
 
-			int likeInseriti = (int) likeService.contaMi_piace();
-			session.setAttribute("likeInseriti", likeInseriti);
-			
-			List<Mi_piace> listaLike = likeService.selezionaTuttiMi_piace();
-			for (Mi_piace x : listaLike) {
-				if (x.getUtente().getUsername().equals(u.getUsername()) ) {
-					inserito = true;
-				}
-			}
-			if (inserito == false && aggiuntaInterazione==false) {
-				Mi_piace l = new Mi_piace(u, p);
-				likeService.inserisciMi_piace(l);
-				aggiuntaInterazione=true;
-			}
+        if (action.equals("like")) {  //** mi piace
+            boolean inserito = false;
 
-//            for (Post p : listaPost) {
-//                if(p.getIdPost()==id_post && p.getUtente().getUsername().equals(u.getUsername())) {
-//                    Mi_piace l = new Mi_piace(u,p);
-//                    likeService.inserisciMi_piace(l);
-//                }
+            for (Post x : posts) {
+                System.out.println("Post: " + x.getDescrizione() + "num like: " + x.getNumLikes());
+            }
+
+            for (Mi_piace y : po.getLikes()) {
+                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+                    inserito = true;
+                }
+            }
+            for (Dislike y : po.getDislikes()) {
+                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+                    inserito = true;
+                }
+            }
+            if (inserito == false) {
+                Utente u = (Utente) session.getAttribute("utente");
+                Post p = postService.selezionaPostById(id_post);
+
+                Mi_piace l = new Mi_piace(u, p);
+                likeService.inserisciMi_piace(l);
+            }
+
+            session.setAttribute("listaPost", posts);
+
+        }
+else if (action.equals("dislike")) {    //* non mi piace
+            boolean inserito = false;
+
+//            for (Post x : posts) {
+//                System.out.println("Post: " + x.getDescrizione() + "num Dislike: " + x.getNumDislikes());
 //            }
-//            Post p = (Post) session.getAttribute("post");
-//            List<Mi_piace> likes = likeService.selezionaTuttiMi_piace();
-//            for (Mi_piace m : likes) {
-//                if (!m.getUtente().getUsername().equals(u.getUsername()) && m.getPost().getIdPost() == p.getIdPost()) {
-//                    Mi_piace l = new Mi_piace(u, p);
-//                    likes.add(l);
-//                    likeService.inserisciMi_piace(l);
-//                }
-//            }
 
-		} else if (action.equals("dislike")) {
-			boolean inserito = false;
-			Utente u = (Utente) session.getAttribute("utente");
-			Post p = postService.selezionaPostById(id_post);
-			
-			int disLikeInseriti = (int) dislikeService.contaDislike();
-			session.setAttribute("disLikeInseriti", disLikeInseriti);
-			
-			List<Dislike> listaDisLike = dislikeService.selezionaTuttiDislike();
-			
-			
-			for(Dislike x : listaDisLike) {
-				if(x.getUtente().getUsername().equals(u.getUsername())) {
-					inserito = true;
-				}
-			}
-			if(inserito == false&&aggiuntaInterazione==false) {
-				Dislike d = new Dislike(u, p);
-				dislikeService.inserisciDislike(d);
-				aggiuntaInterazione=true;
-			}
-			
+            for (Mi_piace y : po.getLikes()) {
+                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+                    inserito = true;
+                }
+            }
+            for (Dislike y : po.getDislikes()) {
+                if (po.getUtente().getUsername().equals(y.getUtente().getUsername())) {
+                    inserito = true;
+                }
+            }
 
-			
-			
-			
-			
-//    		Post postCorretto=null;
-//			for (Post p : listaPost) {
-//				if (p.getIdPost() == id_post) {
-//					postCorretto=p;
-//					System.out.println("dislike inserito");
-//				}
-//			}
-//		    Set<Dislike> disLikes = postCorretto.getDislikes();
-//		    for(Dislike d: disLikes) {
-//		    	if(!d.getUtente().getUsername().equals(u.getUsername())) {
-//		    		Dislike dislike = new Dislike(u,postCorretto);
-//		    		dislikeService.inserisciDislike(dislike);
-//		    		
-//		    		
-//		    	}
-//		    }
-		}
+            if (inserito == false) {
+                Utente u = (Utente) session.getAttribute("utente");
+                Post p = postService.selezionaPostById(id_post);
+                Dislike d = new Dislike(u, p);
+                dislikeService.inserisciDislike(d);
+            }
 
-		return "home";
+            session.setAttribute("listaPost", posts);
 
-	}
+        }
+
+        return "home";
+
+    }
+
 
 }

@@ -3,6 +3,7 @@ package start.DAO;
 import java.util.List;
 
 import start.model.Dislike;
+import start.model.Post;
 
 public interface DislikeDAO {
 
@@ -17,4 +18,6 @@ public interface DislikeDAO {
     List<Dislike> selezionaTuttiDislike();
 
     long contaDislike();
+    
+    List<Dislike> selezionaDisLikesByPost(Post p );
 }

@@ -38,26 +38,26 @@
             to additional content. This content is a little bit longer.-->
         </p>
         <div class="container d-flex justify-content-center align-items-center">
-			 <form action="addInteraction" method="post" class="d-flex justify-content-center align-items-center" >
-			 
-			<#if likeInseriti??>
-	            <p class="like-counter m-0" id="dislike-counter-1">${likeInseriti}</p>
-            </#if>
-	            <input type="hidden" name="id_post" value="${post.getIdPost()}">
-	            
-	            
+<form action="addInteraction" method="post" class="d-flex justify-content-center align-items-center" >
 
-	            <button type="submit" name="action" value="like" class="navbar-brand button" style="padding: 1px;">
-	                <img src="../img/like.png" width="60" height="50">
-	            </button>
-	            
-	            <button type="submit" name="action" value="dislike" class="navbar-brand button" style="padding: 1px;">
-	                <img src="../img/notLike.png" width="60" height="50">
-	            </button>
-		<#if disLikeInseriti??>
-	            <p class="like-counter m-0" id="like-counter-1">${disLikeInseriti}</p>
-        </#if>
-           	</form>
+
+                <p class="like-counter m-0" id="dislike-counter-1">${post.getNumLikes()}</p>
+
+                <input type="hidden" name="id_post" value="${post.getIdPost()}">
+
+
+
+                <button type="submit" name="action" value="like" class="navbar-brand button" style="padding: 1px;">
+                    <img src="../img/like.png" width="60" height="50">
+                </button>
+
+                <button type="submit" name="action" value="dislike" class="navbar-brand button" style="padding: 1px;">
+                    <img src="../img/notLike.png" width="60" height="50">
+                </button>
+
+                <p class="like-counter m-0" id="like-counter-1">${post.getNumDislikes()}</p>
+
+               </form>
         </div>
     </div>
 </div>                       
