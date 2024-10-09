@@ -2,6 +2,7 @@ package start.controller;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,10 +79,11 @@ public class LoginController {
 	    }
 	    
 		Utente utente = utenteService.selezionaUtenteByUsername(username);
-			
+		listaPost.sort(Comparator.comparing(Post::getDataOra).reversed());
 		session.setAttribute("listaPost", listaPost);		
 		session.setAttribute("utente", utente); // aggiunto al model l'utente per far comparire il nome dell'utente loggato su navbar.ftl
 		session.setAttribute("listaEventi", listaEventi);
+		utente.getPostCreati().sort(Comparator.comparing(Post::getDataOra).reversed());
 		session.setAttribute("listaPostUtente", utente.getPostCreati());
 		session.setAttribute("listaEventoUtente", utente.getEventiCreati());
 

@@ -1,6 +1,7 @@
 package start.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class NavbarController {
 	    if(listaEventi == null) {
 	    	listaEventi = new ArrayList<>();
 	    }
+	    listaPost.sort(Comparator.comparing(Post::getDataOra).reversed());
 		session.setAttribute("listaPost", listaPost);		
 		session.setAttribute("listaEventi", listaEventi);
 		return "home";        // al momento non funziona perchè la lista di utenti che popola i post viene passata dal LoginController
@@ -60,6 +62,7 @@ public class NavbarController {
 	    if(listaEventi == null) {
 	    	listaEventi = new ArrayList<>();
 	    }
+	    listaPost.sort(Comparator.comparing(Post::getDataOra).reversed());
 		session.setAttribute("listaPost", listaPost);		
 		session.setAttribute("listaEventi", listaEventi);
 		return "profilo";

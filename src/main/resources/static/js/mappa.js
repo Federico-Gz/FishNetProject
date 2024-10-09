@@ -179,7 +179,7 @@ function addStaticMarkers(map) {
             title: location.title,
             animation: google.maps.Animation.DROP, // Animazione "drop"
             icon: {
-                url: "/img/logo.png", // Icona per il marcatore di pesca
+                url: "/img/fish.png", // Icona per il marcatore di pesca
                 scaledSize: new google.maps.Size(40, 40), // Dimensione dell'icona
             }
         });

@@ -80,7 +80,7 @@ public class PostController {
 
 				utente.getPostCreati().add(post);
 				// session.setAttribute("listaPostUtente", utente.getPostCreati());
-
+				
 				session.setAttribute("post", post);
 				List<Post> listaPost = (List<Post>) session.getAttribute("listaPost");
 				listaPost.add(post);
