@@ -73,4 +73,10 @@ public class NavbarController {
 		session.setAttribute("listaEventoUtente", u.getEventiCreati());
 		return "eventi";
 	}
+	
+	@GetMapping("/mappa")
+	public String showMappa(HttpSession session) {
+		
+		return "mappa";
+	}
 }

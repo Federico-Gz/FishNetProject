@@ -49,7 +49,7 @@ public class Evento {
 	@Column(name ="gommone", nullable = false)
 	private String gommone;
 	@Column(name ="tipologia_esca",nullable = false)
-	private String tipologiaesca;
+	private String tipologiaEsca;
 	@Column(name ="data_inizio", nullable = false)
 	private LocalDate dataInizio;
 	@Column(name ="data_fine", nullable = false)
@@ -71,7 +71,7 @@ public class Evento {
 		this.numeroCanne = numeroCanne;
 		this.specialitaCanne = specialitaCanne;
 		this.gommone = gommone;
-		this.tipologiaesca = tipologiaesca;
+		this.tipologiaEsca = tipologiaesca;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 	}
@@ -90,7 +90,7 @@ public class Evento {
 		this.numeroCanne = numeroCanne;
 		this.specialitaCanne = specialitaCanne;
 		this.gommone = gommone;
-		this.tipologiaesca = tipologiaesca;
+		this.tipologiaEsca = tipologiaesca;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 	}
@@ -163,11 +163,11 @@ public class Evento {
 	public void setGommone(String gommone) {
 		this.gommone = gommone;
 	}
-	public String getTipologiaesca() {
-		return tipologiaesca;
+	public String getTipologiaEsca() {
+		return tipologiaEsca;
 	}
-	public void setTipologiaesca(String tipologiaesca) {
-		this.tipologiaesca = tipologiaesca;
+	public void setTipologiaEsca(String tipologiaEsca) {
+		this.tipologiaEsca = tipologiaEsca;
 	}
 	public LocalDate getDataInizio() {
 		return dataInizio;

@@ -29,10 +29,10 @@ public class EventoController {
 	private LuogoDAO luogoService;
 	
 	@PostMapping("/inserisciEvento")
-	public String inserisciEvento(HttpSession session,@RequestParam("descrizione") String descrizione,@RequestParam("numeroCanne") Integer numeroCanne,
-			@RequestParam("specialitaCanna") String specialitaCanna,@RequestParam("gommone") String gommone,
-			@RequestParam("tipologiaEsca") String tipologiaEsca,@RequestParam("dataInizio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate dataInizio,
-			@RequestParam("dataFine")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFine/*,@RequestParam("numeroPartecipanti") int numeroPartecipanti*/,@RequestParam("luogo") String luogo) {
+	public String inserisciEvento(HttpSession session,@RequestParam String descrizione,@RequestParam Integer numeroCanne,
+			@RequestParam String specialitaCanna,@RequestParam String gommone,
+			@RequestParam String tipologiaEsca,@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate dataInizio,
+			@RequestParam  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFine/*,@RequestParam("numeroPartecipanti") int numeroPartecipanti*/,@RequestParam("luogo") String luogo) {
 		System.out.println("evento ins");
 		Utente u = (Utente)session.getAttribute("utente");
 		Luogo l = luogoService.findByName(luogo);

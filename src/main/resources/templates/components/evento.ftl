@@ -32,58 +32,58 @@
         </div>
 
 <div class="container d-flex mt-5">
-    <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
+    <div class="card-text shadow-lg p-3 m-1 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
         <div class="col-md-6">
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 1</h6>
+                    <h6 class="mb-0">Numero canne:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 1</p>
+                <p class="fs-6 mb-0">${evento.getNumeroCanne()}</p>
             </div>
 
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 2</h6>
+                    <h6 class="mb-0">Specialità canna:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 2</p>
+                <p class="fs-6 mb-0">${evento.getSpecialitaCanne()}</p>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 3</h6>
+                    <h6 class="mb-0">Gommone:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 3</p>
+                <p class="fs-6 mb-0">${evento.getGommone()}</p>
             </div>
 
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 4</h6>
+                    <h6 class="mb-0">Tipologia esca:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 4</p>
+                <p class="fs-6 mb-0">${evento.getTipologiaEsca()}</p>
             </div>
         </div>
     </div>
-    <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
+    <div class="card-text shadow-lg p-3 m-1 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
         <div class="col-md-6">
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 1</h6>
+                    <h6 class="mb-0">Luogo evento:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 1</p>
+                <p class="fs-6 mb-0">${evento.getLuogo().getNome_luogo()}</p>
             </div>
 
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 2</h6>
+                    <h6 class="mb-0">Data inizio:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 2</p>
+                <p class="fs-6 mb-0">${evento.getDataInizio()}</p>
             </div>
         </div>
 
@@ -91,18 +91,18 @@
             <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
-                    <h6 class="mb-0">Titolo 3</h6>
+                    <h6 class="mb-0">Data fine:</h6>
                 </div>
-                <p class="fs-6 mb-0">Contenuto 3</p>
+                <p class="fs-6 mb-0">${evento.getDataFine()}</p>
             </div>
 
-            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+     <!--       <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
                 <div class="d-flex align-items-center justify-content-center mb-1">
                     <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
                     <h6 class="mb-0">Titolo 4</h6>
                 </div>
                 <p class="fs-6 mb-0">Contenuto 4</p>
-            </div>
+            </div>  -->
         </div>
     </div>
 </div>
