@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import start.DAO.LuogoDAO;
 import start.model.Luogo;
 import start.repository.LuogoRepository;
@@ -17,6 +18,7 @@ public class LuogoDAOimpl implements LuogoDAO {
 	private LuogoRepository repository;
 	
 	@Override
+	@Transactional
 	public void inserisciLuogo(Luogo l) {
 		repository.save(l);
 		
@@ -48,14 +50,18 @@ public class LuogoDAOimpl implements LuogoDAO {
 
 	@Override
 	public List<Luogo> selezionaTuttiLuoghi() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public long contaLuoghi() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Luogo findByName(String nome) {
+		return repository.findByName(nome);
 	}
 
 }

@@ -15,15 +15,20 @@ import jakarta.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import start.DAO.EventoDAO;
 import start.DAO.Mi_piaceDAO;
 import start.DAO.PostDAO;
 import start.DAO.UtenteDAO;
+import start.model.Evento;
 import start.model.Post;
 import start.model.Utente;
 
 @Controller
 @RequestMapping("/")
 public class LoginController {
+	
+	@Autowired
+	private EventoDAO eventoService;
 	
 	@Autowired
 	private UtenteDAO utenteService;
@@ -68,13 +73,19 @@ public class LoginController {
 			listaPost = new ArrayList<>(); // Inizializza con una lista vuota
 		}
 
+		List<Evento> listaEventi = eventoService.selezionaTuttiEvento();
+	    if(listaEventi == null) {
+	    	listaEventi = new ArrayList<>();
+	    }
+	    
 		Utente utente = utenteService.selezionaUtenteByUsername(username);
 			
-		session.setAttribute("listaPost", listaPost);
+		session.setAttribute("listaPost", listaPost);		
 		session.setAttribute("utente", utente); // aggiunto al model l'utente per far comparire il nome dell'utente loggato su navbar.ftl
-
-		Utente u = (Utente) session.getAttribute("utente");
-		session.setAttribute("listaPostUtente", u.getPostCreati());
+		session.setAttribute("listaEventi", listaEventi);
+		session.setAttribute("listaPostUtente", utente.getPostCreati());
+		session.setAttribute("listaEventoUtente", utente.getEventiCreati());
+		
 		
 		int likeInseriti = (int) likeService.contaMi_piace();
 		session.setAttribute("likeInseriti", likeInseriti);

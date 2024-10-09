@@ -103,6 +103,8 @@ public class PostController {
 	@PostMapping("/addInteraction")
 	public String addLike(@RequestParam String action, @RequestParam int id_post, HttpSession session, Model model) {
 
+		boolean aggiuntaInterazione = false;
+		
 		if (action.equals("like")) {
 			boolean inserito = false;
 			Utente u = (Utente) session.getAttribute("utente");
@@ -117,9 +119,10 @@ public class PostController {
 					inserito = true;
 				}
 			}
-			if (inserito == false) {
+			if (inserito == false && aggiuntaInterazione==false) {
 				Mi_piace l = new Mi_piace(u, p);
 				likeService.inserisciMi_piace(l);
+				aggiuntaInterazione=true;
 			}
 
 //            for (Post p : listaPost) {
@@ -154,9 +157,10 @@ public class PostController {
 					inserito = true;
 				}
 			}
-			if(inserito == false) {
+			if(inserito == false&&aggiuntaInterazione==false) {
 				Dislike d = new Dislike(u, p);
 				dislikeService.inserisciDislike(d);
+				aggiuntaInterazione=true;
 			}
 			
 

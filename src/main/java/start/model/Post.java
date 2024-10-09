@@ -34,8 +34,6 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "id_luogo", nullable = false)
     private Luogo luogo;
-
-
     @OneToMany(mappedBy = "post")
     private Set<Mi_piace> likes;
     @OneToMany(mappedBy = "post", fetch = FetchType.EAGER)

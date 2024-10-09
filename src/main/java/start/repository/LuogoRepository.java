@@ -5,4 +5,5 @@ import start.model.Luogo;
 
 public interface LuogoRepository extends JpaRepository<Luogo,Integer>{
 
+	Luogo findByName(String nome);
 }

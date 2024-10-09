@@ -2,7 +2,7 @@
     <div class="container bg-body-tertiary">
         <div class="container-fluid d-flex justify-content-between align-items-start">
             <div class="d-flex w-50">
-                <img src="/img/logo.png" alt="Logo" class="d-flex align-self-center img-profilo" />
+                <img src="/img/immagine-utente.png" alt="Immagine Utente" class="d-flex align-self-center img-profilo" />
                 <div class="d-flex flex-column align-self-center mt-3">
                     <h6 class="align-self-center">${post.getUtente().getUsername()}</h6>
                     <p class="align-self-center">${post.getFormattedDataOra()}</p>

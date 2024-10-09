@@ -41,7 +41,7 @@ public class Utente {
     private String img;
     @OneToMany(mappedBy = "utente",fetch = FetchType.EAGER)
     private List<Post> postCreati;
-    @OneToMany(mappedBy = "utente")
+    @OneToMany(mappedBy = "utente",fetch = FetchType.EAGER)
     private List<Evento> eventiCreati;
     @ManyToMany
     @JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name = "id_utente"), inverseJoinColumns = @JoinColumn(name = "id_evento"))
@@ -182,8 +182,10 @@ public void setUsername(String username) {
     }
 
     public int numeroPostCreati() {
-    	return this.getPostCreati().size();
-    	
+    	return this.getPostCreati().size();  	
     }
 
+    public int numeroEventiCreati() {
+    	return this.getEventiCreati().size();
+    }
 }

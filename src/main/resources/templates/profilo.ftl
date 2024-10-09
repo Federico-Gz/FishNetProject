@@ -66,7 +66,7 @@
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="" class="card-img" alt="Profilo Utente">
+                            <img src="/img/immagine-utente.png" class="card-img" alt="Profilo Utente">
                             </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -87,7 +87,7 @@
                                 </p>
                                 <p class="card-text">
                                     <ion-icon name="earth-outline"></ion-icon>
-                                    <strong>Eventi Creati:</strong>
+                                    <strong>Eventi Creati: ${utente.numeroEventiCreati()}</strong>
                                 </p>
                             </div>
                         </div>
@@ -105,7 +105,14 @@
                  <p>Nessun post disponibile</p> <!-- Messaggio se listaPost è null -->
             </#if>
            
-       
+           <#if listaEventiUtente??> <!-- Verifica se listaPost esiste -->
+                 <#list listaEventiUtente as evento>
+           		     <#include "/components/evento.ftl"/>
+                 </#list>
+            <#else>
+                 <p>Nessun evento creato</p> <!-- Messaggio se listaEventi è null -->
+            </#if>		 
+      
         </div>
     </div>
 

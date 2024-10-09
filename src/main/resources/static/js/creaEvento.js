@@ -5,7 +5,7 @@ const overlay = document.getElementById("overlay");
 const tastoChiusura = document.getElementById("x");
 const aggiungiPartecipante = document.getElementById("incrementa");
 const rimuoviPartecipante = document.getElementById("decrementa");
-let counter = document.getElementById('counter');
+var counter = document.getElementById('counter');
 
 pulsanteAggiungi.addEventListener("click", mostraCreaPost);
 tastoChiusura.addEventListener("click", chiudiCreaPost);
@@ -30,12 +30,12 @@ function chiudiCreaPost(){
 }
 
 function increment() {
-    let counter = document.getElementById('counter');
+    var counter = document.getElementById('counter');
     counter.value = parseInt(counter.value) + 1;
   }
 
   function decrement() {
-    let counter = document.getElementById('counter');
+    var counter = document.getElementById('counter');
     if (counter.value > 0) {
       counter.value = parseInt(counter.value) - 1;
     }

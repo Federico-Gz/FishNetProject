@@ -19,7 +19,7 @@ public class Luogo {
     private int id_luogo;
 
     @Column(name = "nome_luogo", nullable = false)
-    private String nome_luogo; 
+    private String name; 
 
     @Column(name = "latitudine", nullable = false)
     private double latitudine; 
@@ -28,6 +28,10 @@ public class Luogo {
     private double longitudine;
 
    public Luogo() {}
+   
+//   public Luogo(String nome_luogo) {
+//	   this.nome_luogo=nome_luogo;
+//   }
 
     public Luogo(String nome_luogo, double latitudine, double longitudine) {
 		super();
@@ -45,11 +49,11 @@ public class Luogo {
 	}
 
 	public String getNome_luogo() {
-		return nome_luogo;
+		return name;
 	}
 
 	public void setNome_luogo(String nome_luogo) {
-		this.nome_luogo = nome_luogo;
+		this.name = nome_luogo;
 	}
 
 	public double getLatitudine() {

@@ -31,10 +31,10 @@ public class Evento {
 	private LocalDateTime dataCreazione;
 	@Column(name = "descrizione", nullable = false)
 	private String descrizione;
-	@Column(name = "numero_max", nullable = false)
-	private int numeroMax;
+	@Column(name = "numero_max")
+	private Integer numeroMax;
 	@Column(name = "numero_iscritti")
-	private int numeroIscritti;
+	private Integer numeroIscritti;
 	@ManyToMany
 	@JoinTable(name = "evento_utente", joinColumns = @JoinColumn(name="id_evento"),
 	inverseJoinColumns = @JoinColumn(name="id_utente"))
@@ -43,7 +43,7 @@ public class Evento {
 	@JoinColumn(name = "id_luogo", nullable = false)
 	private Luogo luogo;
 	@Column(name ="numero_canne", nullable = false)
-	private int numeroCanne;
+	private Integer numeroCanne;
 	@Column(name ="specialita_canne",nullable = false)
 	private String specialitaCanne;
 	@Column(name ="gommone", nullable = false)
@@ -55,9 +55,28 @@ public class Evento {
 	@Column(name ="data_fine", nullable = false)
 	private LocalDate dataFine;
 	
+	public Evento() {}
 	
-	
-	public Evento(Utente utente, String descrizione,int numeroMax,int numeroCanne,
+	public Evento(Utente utente, String descrizione,Luogo luogo,Integer numeroCanne,
+			String specialitaCanne, String gommone, String tipologiaesca, LocalDate dataInizio,
+			LocalDate dataFine) {
+		super();
+		this.utente = utente;		
+		this.dataCreazione = LocalDateTime.now();
+		this.descrizione = descrizione;
+		
+		this.partecipanti = new ArrayList<>();
+		this.numeroIscritti = 0;		
+		this.luogo = luogo;
+		this.numeroCanne = numeroCanne;
+		this.specialitaCanne = specialitaCanne;
+		this.gommone = gommone;
+		this.tipologiaesca = tipologiaesca;
+		this.dataInizio = dataInizio;
+		this.dataFine = dataFine;
+	}
+
+	public Evento(Utente utente, String descrizione,Integer numeroMax,Luogo luogo,Integer numeroCanne,
 			String specialitaCanne, String gommone, String tipologiaesca, LocalDate dataInizio,
 			LocalDate dataFine) {
 		super();
@@ -67,7 +86,7 @@ public class Evento {
 		this.numeroMax = numeroMax;
 		this.partecipanti = new ArrayList<>();
 		this.numeroIscritti = 0;		
-		this.luogo = new Luogo ("Savona", 44.2975603, 8.4645);
+		this.luogo = luogo;
 		this.numeroCanne = numeroCanne;
 		this.specialitaCanne = specialitaCanne;
 		this.gommone = gommone;
@@ -98,20 +117,20 @@ public class Evento {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	public int getNumeroMax() {
+	public Integer getNumeroMax() {
 		return numeroMax;
 	}
-	public void setNumeroMax(int numeroMax) {
+	public void setNumeroMax(Integer numeroMax) {
 		this.numeroMax = numeroMax;
 	}
-	public int getNumeroIscritti() {
+	public Integer getNumeroIscritti() {
 		if(partecipanti.isEmpty()) {		
 			return numeroIscritti = 0;
 		}
 		this.numeroIscritti=partecipanti.size();
 		return numeroIscritti;
 	}
-	public void setNumeroIscritti(int numeroIscritti) {
+	public void setNumeroIscritti(Integer numeroIscritti) {
 		this.numeroIscritti = numeroIscritti;
 	}
 	public List<Utente> getPartecipanti() {
@@ -126,10 +145,10 @@ public class Evento {
 	public void setLuogo(Luogo luogo) {
 		this.luogo = luogo;
 	}
-	public int getNumeroCanne() {
+	public Integer getNumeroCanne() {
 		return numeroCanne;
 	}
-	public void setNumeroCanne(int numeroCanne) {
+	public void setNumeroCanne(Integer numeroCanne) {
 		this.numeroCanne = numeroCanne;
 	}
 	public String getSpecialitaCanne() {

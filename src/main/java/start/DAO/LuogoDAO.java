@@ -20,4 +20,6 @@ public interface LuogoDAO {
 	List<Luogo> selezionaTuttiLuoghi();
 
 	long contaLuoghi();
+	
+	Luogo findByName(String nome);
 }

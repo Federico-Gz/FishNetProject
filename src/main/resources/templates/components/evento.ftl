@@ -2,10 +2,10 @@
         <div class="container bg-body-tertiary">
             <div class="container-fluid d-flex justify-content-between align-items-start">
                 <div class="d-flex w-50">
-                    <img src="/img/logo.png" alt="Logo"
+                    <img src="/img/immagine-utente.png" alt="Immagine Utente"
                         class="d-flex align-self-center img-profilo" />
                     <div class="d-flex flex-column align-self-center mt-3">
-                        <h6 class="align-self-center fs-5">Nome profilo</h6>
+                        <h6 class="align-self-center fs-5">${evento.getUtente().getUsername()}</h6>
                     </div>
 
                 </div>
@@ -26,8 +26,7 @@
 
         <div class="card-body shadow-lg mt-3 border shadow-sm p-3 bg-body-tertiary rounded">
             <p class="card-text fs-3">
-                This is a wider card with supporting text below as a natural lead-in
-                to additional content. This content is a little bit longer.
+                ${evento.getDescrizione()}
             </p>
 
         </div>
