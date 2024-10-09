@@ -46,16 +46,31 @@ public class NavbarController {
 	    }
 		session.setAttribute("listaPost", listaPost);		
 		session.setAttribute("listaEventi", listaEventi);
-		return "home";         // al momento non funziona perchè la lista di utenti che popola i post viene passata dal LoginController
+		return "home";        // al momento non funziona perchè la lista di utenti che popola i post viene passata dal LoginController
 	}
 	
 	@GetMapping("/profilo")
-	public String showProfilo() {
+	public String showProfilo(HttpSession session) {
+		List<Post> listaPost = postService.selezionaTuttiPost();
+		if (listaPost == null) {
+			listaPost = new ArrayList<>(); // Inizializza con una lista vuota
+		}
+
+		List<Evento> listaEventi = eventoService.selezionaTuttiEvento();
+	    if(listaEventi == null) {
+	    	listaEventi = new ArrayList<>();
+	    }
+		session.setAttribute("listaPost", listaPost);		
+		session.setAttribute("listaEventi", listaEventi);
 		return "profilo";
 	}
 	
 	@GetMapping("/eventi")
-	public String showEventi() {
+	public String showEventi(HttpSession session) {
+		Utente u = (Utente)session.getAttribute("utente");
+		List<Evento> listaEventiSession = (List<Evento>) session.getAttribute("listaEventi");
+		session.setAttribute("listaEventi", listaEventiSession);
+		session.setAttribute("listaEventoUtente", u.getEventiCreati());
 		return "eventi";
 	}
 }

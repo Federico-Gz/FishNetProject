@@ -94,7 +94,7 @@ public class PostController {
 			redirectAttributes.addFlashAttribute("message", "Errore durante il caricamento del file");
 		}
 
-		return "home"; // Redirigi a una pagina di successo
+		return "redirect:/showHome"; // Redirigi a una pagina di successo 
 	}
 
 	@PostMapping("/addInteraction")

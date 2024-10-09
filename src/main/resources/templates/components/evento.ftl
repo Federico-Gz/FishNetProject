@@ -31,80 +31,88 @@
 
         </div>
 
-        <div class="container d-flex mt-5">
-    		<div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
-        		<ul class="w-50 d-flex flex-column align-items-center ps-0">
-        			<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-            		<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-        		</ul>
-        		<ul class="w-50 d-flex flex-column align-items-center ps-0">
-        			<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-            		<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-        					<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-        		</ul>
-    		</div>
-    		<div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
-        		<ul class="w-50 d-flex flex-column align-items-center ps-0">
-        			<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-            		<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-        		</ul>
-        		<ul class="w-50 d-flex flex-column align-items-center ps-0">
-        			<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-    						<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-            		<li class="m-0 mt-4">
-        				<div class="d-flex align-items-center justify-content-center">
-        					<ion-icon name="caret-forward-outline" class="fs-5"></ion-icon>
-    						<p class="mb-0 ms-4 fs-3">ciao</p>
-						</div>
-            		</li>
-        		</ul>
-    		</div>
-		</div>
+<div class="container d-flex mt-5">
+    <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
+        <div class="col-md-6">
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 1</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 1</p>
+            </div>
 
-        <div class="container d-flex justify-content-center">
-            <div class="card-text shadow-lg p-2 shadow-sm p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-center align-items-center fs-3 p-5">
-                <p class="like-counter m-0" id="like-counter">0</p>
-                <a class="navbar-brand button" id="like-button" href="#" style="padding: 1px;">
-                    <img src="/img/like.png" width="60" height="50">
-                </a>
-                <a class="navbar-brand button" id="dislike-button" href="#" style="padding: 1px;">
-                    <img src="/img/notLike.png" width="60" height="50">
-                </a>
-                <p class="like-counter m-0" id="dislike-counter">0</p>
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 2</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 2</p>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 3</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 3</p>
+            </div>
+
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 4</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 4</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-text shadow-lg p-3 m-3 bg-body-tertiary rounded w-50 d-flex justify-content-evenly align-items-start">
+        <div class="col-md-6">
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 1</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 1</p>
+            </div>
+
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 2</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 2</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 3</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 3</p>
+            </div>
+
+            <div class="card-text shadow-lg p-2 m-2 bg-body-tertiary rounded d-flex flex-column align-items-center text-center">
+                <div class="d-flex align-items-center justify-content-center mb-1">
+                    <ion-icon name="caret-forward-outline" class="fs-5 me-1"></ion-icon>
+                    <h6 class="mb-0">Titolo 4</h6>
+                </div>
+                <p class="fs-6 mb-0">Contenuto 4</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+       
+           <div class="container d-flex justify-content-center">
+            <div class="card-text  p-3 m-3 w-50 d-flex justify-content-center align-items-center fs-3 p-5">
+                <button type="submit" class="btn btn-outline-info fs-4 shadow-lg ">Partecipa</button>
+            </div>
+        </div>
+       
 
     </div>

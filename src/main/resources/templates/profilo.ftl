@@ -105,13 +105,13 @@
                  <p>Nessun post disponibile</p> <!-- Messaggio se listaPost è null -->
             </#if>
            
-           <#if listaEventiUtente??> <!-- Verifica se listaPost esiste -->
+          <!--  <#if listaEventiUtente??>  Verifica se listaPost esiste 
                  <#list listaEventiUtente as evento>
            		     <#include "/components/evento.ftl"/>
                  </#list>
-            <#else>
-                 <p>Nessun evento creato</p> <!-- Messaggio se listaEventi è null -->
-            </#if>		 
+           <#else>
+                 <p>Nessun evento creato</p> 
+            </#if>	-->	 
       
         </div>
     </div>

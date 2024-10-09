@@ -49,7 +49,8 @@ public class EventoController {
 		listaEventiSession.add(e);
 		session.setAttribute("listaEventi", listaEventiSession);
 		session.setAttribute("listaEventoUtente", u.getEventiCreati());
-		return "eventi";
+		
+		return "redirect:/eventi";
 	}
 	
 }
